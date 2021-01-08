@@ -79,13 +79,10 @@
    background: #FFFFFF;
    border-radius: 20px;
    flex: 1 1 auto; 
-}
-
-
-.screen_1 {
    margin-top: 50px;
    margin-bottom: 50px;
 }
+
 
 .html_image img {
    max-width: 100%;
@@ -265,7 +262,7 @@ padding: 13px;
    margin-left: 40px;
    margin-right: 40px;
    margin-bottom: 16px;
-   padding: 5px 0 5px 20px;
+   padding: 5px 0 5px 5px;
    background: #693EFF;
    border-radius: 15px;
    font-weight: 600;
@@ -285,7 +282,7 @@ padding: 13px;
    background-color: rgb(255, 255, 255);
    position: absolute;
    top: 50%;
-   left: 10%;
+   left: 6%;
 }
 
 .screen_2_addmore:after {
@@ -440,7 +437,6 @@ padding: 13px;
    margin-bottom: 50px;
    padding-bottom: 10px;
    background: #FFFFFF;
-   box-shadow: 1px 10px 53px rgba(105, 62, 255, 0.15);
    border-radius: 20px;
    flex: 1 1 auto;
 }
@@ -496,7 +492,6 @@ padding: 13px;
 
 .screen_5 {
    background: #FFFFFF;
-   box-shadow: 1px 10px 53px rgba(105, 62, 255, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.25);
    border-radius: 20px;
    /* margin-top: 50px; */
    padding-bottom: 30px;
@@ -558,7 +553,6 @@ padding: 13px;
 .screen_6 {
    background: url('img/content/map.png') 0 0/cover no-repeat;
    /* position: relative; */
-   box-shadow: 0px 4px 64px rgba(105, 62, 255, 0.2);
    border-radius: 20px;
    margin-top: 50px;
    margin-bottom: 50px;
@@ -630,7 +624,6 @@ padding: 13px;
 
 .screen_7 {
    background: #FFFFFF;
-   box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.16);
    border-radius: 20px;
    /* margin-top: 50px; */
    border-bottom-right-radius: 0px;
@@ -686,13 +679,9 @@ color: #FFFFFF;
 }
 
 .screen_9 {
-   /* margin-top: 50px; */
    background: #FFFFFF;
-   box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.16);
    border-radius: 20px;
    padding-bottom: 20px;
-   /* position: absolute;
-   bottom: 0; */
    border-bottom-right-radius: 0px;
    border-bottom-left-radius: 0px;
    
