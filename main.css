@@ -15,7 +15,7 @@
 }
 
 .content {
-   position: relative;
+   /* position: relative; */
 }
 
 .header_title {
@@ -392,7 +392,7 @@ padding: 13px;
 
 .screen_3 {
    background: #FFFFFF;
-   border: 1px solid #000000;
+   /* border: 1px solid #000000; */
    border-radius: 20px;
    border-top: none;
    border-top-right-radius: 0px;
@@ -681,7 +681,7 @@ color: #FFFFFF;
 .screen_9 {
    background: #FFFFFF;
    border-radius: 20px;
-   padding-bottom: 20px;
+   /* padding-bottom: 20px; */
    border-bottom-right-radius: 0px;
    border-bottom-left-radius: 0px;
    
