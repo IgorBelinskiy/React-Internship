@@ -802,7 +802,7 @@ transition: 1s;
 @media (max-width: 1250px) {
    .content_body {
       flex-wrap: wrap;
-      margin: 40px;
+      margin: 20px;
       /* margin: 0; */
       padding: 0;
    }
