@@ -838,6 +838,9 @@ transition: 1s;
    .body_columns:last-child {
       margin-right: 0px;
    }
+   .header_title a {
+      margin-right: 10px;
+   }
 }
 
 
