@@ -1,0 +1,10 @@
+.app-wrapper {
+  background: rgba(229, 229, 229, 1);
+  overflow: hidden;
+  font-family: "Poppins";
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
