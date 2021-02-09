@@ -2,12 +2,11 @@ import React from 'react';
 import classes from './ScreenFirst.module.css';
 import html from '../img/html-logo.png';
 import Options from './Options/Options';
-
-
+import PropTypes from 'prop-types';
 
 const ScreenFirst = (props) => {
-   let optionsElements = props.state.options
-      .map((options) => <Options options={options} />)
+   let optionsElements = props.options
+      .map((el) => <Options key={el.option} option={el.option} price={el.price} />)
    return (
       <div className={classes.screen_1}>
          <div className={classes.html_image}>
@@ -25,8 +24,8 @@ const ScreenFirst = (props) => {
             <div className={classes.html_item_selected}>
                <div className={classes.item_selected_title}>Item selected:</div>
                <div className={classes.selected}>
-                  <div className={classes.selected_text}>{props.state.itemSelected.item}</div>
-                  <div className={classes.selected_price}>+${props.state.itemSelected.price.toFixed(2)}</div>
+                  <div className={classes.selected_text}>{props.itemSelected.item}</div>
+                  <div className={classes.selected_price}>+${props.itemSelected.price.toFixed(2)}</div>
                </div>
             </div>
             <div className={classes.html_more_options} >
@@ -41,5 +40,10 @@ const ScreenFirst = (props) => {
       </div>
    )
 }
+ScreenFirst.propTypes = {
+   options: PropTypes.array,
+   itemSelected: PropTypes.object,
+}
+
 
 export default ScreenFirst;

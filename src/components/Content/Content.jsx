@@ -15,23 +15,33 @@ const Content = (props) => {
    return <div className={classes.content}>
       <div className={classes.content_body}>
          <div className={classes.body_columns}>
-            <ScreenFirst state={props.state.screenFirstData}
+            <ScreenFirst
+               itemSelected={props.state.screenFirstData.itemSelected}
+               options={props.state.screenFirstData.options}
             />
-            <ScreenSecond state={props.state.screenSecondData}
+            <ScreenSecond
+               mensCuts={props.state.screenSecondData.mensCuts}
+               infoPerson={props.state.screenSecondData.infoPerson}
+               available={props.state.screenSecondData.available}
+               timeDay={props.state.screenSecondData.timeDay}
             />
          </div>
          <div className={classes.body_columns}>
-            <ScreenThird state={props.state.screenThirdData} />
-            <ScreenFourth state={props.state.screenFourthData} />
-            <ScreenFifth state={props.state.screenFifthData} />
+            <ScreenThird
+               subtotal={props.state.screenThirdData.subtotal}
+               tax={props.state.screenThirdData.tax}
+               total={props.state.screenThirdData.total}
+            />
+            <ScreenFourth item={props.state.screenFourthData.item} />
+            <ScreenFifth data={props.state.screenFifthData} />
          </div>
          <div className={classes.body_columns}>
             <ScreenSixth />
             <ScreenSeventh />
          </div>
          <div className={classes.body_columns}>
-            <ScreenEighth state={props.state.screenEighthData} />
-            <ScreenNinth state={props.state.screenNinthData} />
+            <ScreenEighth options={props.state.screenEighthData.options} />
+            <ScreenNinth gitItems={props.state.screenNinthData.gitItems} />
          </div>
       </div>
    </div>

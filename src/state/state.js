@@ -3,6 +3,7 @@ import css2 from '../components/Content/img/css_2.png';
 import css3 from '../components/Content/img/css_3.png';
 
 
+
 const state = {
    screenFirstData: {
       itemSelected: {
@@ -70,5 +71,7 @@ const state = {
       ]
    }
 }
+
+
 
 export default state;

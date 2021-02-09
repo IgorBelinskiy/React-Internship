@@ -2,11 +2,12 @@ import React from 'react';
 import classes from './ScreenFourth.module.css';
 import css from '../img/css3.png';
 import SuggestedItem from './SuggestedItem/SuggestedItem';
+import PropTypes from 'prop-types';
 
 
 const ScreenFourth = (props) => {
-   let suggestedItemElements = props.state.item
-      .map((items) => <SuggestedItem state={items} />)
+   let suggestedItemElements = props.item
+      .map((el) => <SuggestedItem key={el.price} itemName={el.itemName} price={el.price} img={el.img} />)
    return (
       <div className={classes.screen_4}>
          <div className={classes.screen_2_image}>
@@ -43,6 +44,9 @@ const ScreenFourth = (props) => {
          </div>
       </div>
    )
+}
+ScreenFourth.propTypes = {
+   gitItems: PropTypes.array,
 }
 
 export default ScreenFourth;

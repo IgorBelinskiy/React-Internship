@@ -7,11 +7,11 @@ import git2 from '../img/git4.png';
 import git3 from '../img/git1.png';
 import git4 from '../img/git2.png';
 import GitItems from './GitItems/GitItems';
-
+import PropTypes from 'prop-types';
 
 const ScreenNinth = (props) => {
-   let gitItemsElements = props.state.gitItems
-      .map((items) => <GitItems state={items} />)
+   let gitItemsElements = props.gitItems
+      .map((el) => <GitItems key={el.value} value={el.value} />)
    return (
       <div className={classes.screen_9}>
          <div className={classes.screen_9_img}>
@@ -60,9 +60,7 @@ const ScreenNinth = (props) => {
                   <div className={classes.git_body_image}>
                      <img src={git4} alt=""></img>
                   </div>
-                  <div lang='ru' className={classes.git_body_text}>
-                     Основы ветвления и слияния
-                     </div>
+                  <div lang='ru' className={classes.git_body_text}>Основы ветвления и слияния</div>
                </div>
             </div>
             <div className={classes.screen_9_addmore}>
@@ -72,5 +70,10 @@ const ScreenNinth = (props) => {
       </div>
    )
 }
+
+ScreenNinth.propTypes = {
+   gitItems: PropTypes.array,
+}
+
 
 export default ScreenNinth;

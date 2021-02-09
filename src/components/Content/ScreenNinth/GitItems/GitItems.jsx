@@ -1,9 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const GitItems = (props) => {
    return (
-      <li>{props.state.value}</li>
+      <li>{props.value}</li>
    )
+}
+GitItems.propTypes = {
+   value: PropTypes.string,
 }
 
 export default GitItems;

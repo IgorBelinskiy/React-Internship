@@ -1,11 +1,12 @@
 import React from 'react';
 import Options from './Options/Options';
 import classes from './ScreenEighth.module.css';
+import PropTypes from 'prop-types';
 
 
 const ScreenEighth = (props) => {
-   let optionsElements = props.state.options
-      .map((options) => <Options state={options} />)
+   let optionsElements = props.options
+      .map((el) => <Options key={el.option} price={el.price} options={el.option} />)
    return (
       <div className={classes.screen_8}>
          <div className={classes.screen_8_container}>
@@ -19,6 +20,9 @@ const ScreenEighth = (props) => {
          </div>
       </div>
    )
+}
+ScreenEighth.propTypes = {
+   options: PropTypes.array,
 }
 
 export default ScreenEighth;
