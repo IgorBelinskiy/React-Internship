@@ -1,0 +1,39 @@
+.screen_3 {
+   background: #FFFFFF;
+   border-radius: 20px;
+   border-top: none;
+   border-top-right-radius: 0px;
+   border-top-left-radius: 0px;
+}
+
+.screen_3_top {
+   display: flex;
+   justify-content: space-between;
+   padding: 30px;
+   font-size: 16px;
+   line-height: 24px;
+   color: #A4A4AC;
+}
+
+.top_column_weight {
+   color: #000000;
+}
+
+.screen_3_bottom {
+   margin: 0 20px 25px 20px;
+}
+
+.bottom_checkout {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background: #693EFF;
+   border-radius: 8px;
+   padding: 10px;
+}
+
+.checkout_item {
+   font-weight: 600;
+   font-size: 18px;
+   color: #FFFFFF;
+}

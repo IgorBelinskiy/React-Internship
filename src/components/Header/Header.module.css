@@ -34,3 +34,9 @@
    font-size: 22px;
    font-weight: bold;
 }
+
+@media (max-width: 600px) {
+   .header_title a {
+      margin-right: 10px;
+   }
+}
