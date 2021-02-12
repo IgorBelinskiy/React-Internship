@@ -4,9 +4,16 @@ import light from '../img/light.png';
 import star from '../img/star.png';
 import pp from '../img/person-photo.png';
 import PropTypes from 'prop-types';
+import Time from './Time/Time';
 
 const ScreenSecond = (props) => {
-   console.log()
+   const TimeElements = props.timeDay
+      .map((t) => <Time
+         key={t.time1}
+         timeOne={t.time1}
+         timeTwo={t.time2}
+      />)
+
    return (
       <div className={classes.screen_2}>
          <div className={classes.screen_2_image}>
@@ -14,8 +21,8 @@ const ScreenSecond = (props) => {
          </div>
          <div className={classes.screen_2_container}>
             <div className={classes.screen_2_title}>
-               Ibrahim's Barbershop
-               </div>
+               {props.title}
+            </div>
             <div className={classes.screen_2_cuts}>
                <div className={classes.mens_cuts}>
                   <div>Men's Cuts</div>
@@ -54,28 +61,16 @@ const ScreenSecond = (props) => {
                <div className={classes.available_day}>{props.available}</div>
             </div>
             <div className={classes.screen_2_time}>
-               <div className={classes.time_wrapper}>
-                  <div className={classes.time_day}>{props.timeDay[0].time} am</div>
-                  <div className={`${classes.time_day} ${classes.act}`}>{props.timeDay[1].time} pm</div>
-               </div>
-               <div className={classes.time_wrapper}>
-                  <div className={classes.time_day}>{props.timeDay[2].time} am</div>
-                  <div className={classes.time_day}>{props.timeDay[3].time} pm</div>
-               </div>
-               <div className={classes.time_wrapper}>
-                  <div className={`${classes.time_day} ${classes.act}`}>{props.timeDay[4].time} am</div>
-                  <div className={classes.time_day}>{props.timeDay[5].time} am</div>
-               </div>
-               <div className={classes.time_wrapper}>
-                  <div className={`${classes.time_day} ${classes.act}`}>{props.timeDay[6].time} pm</div>
-                  <div className={`${classes.time_day} ${classes.act_1}`}>{props.timeDay[7].time} pm</div>
-               </div>
+               {
+                  TimeElements
+               }
             </div>
          </div>
       </div>
    )
 }
 ScreenSecond.propTypes = {
+   title: PropTypes.string,
    mensCuts: PropTypes.object,
    infoPerson: PropTypes.string,
    available: PropTypes.string,

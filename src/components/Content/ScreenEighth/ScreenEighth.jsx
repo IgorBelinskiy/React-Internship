@@ -6,7 +6,11 @@ import PropTypes from 'prop-types';
 
 const ScreenEighth = (props) => {
    let optionsElements = props.options
-      .map((el) => <Options key={el.option} price={el.price} options={el.option} />)
+      .map((el) => <Options
+         key={el.option} price={el.price}
+         options={el.option}
+         active={el.active}
+      />)
    return (
       <div className={classes.screen_8}>
          <div className={classes.screen_8_container}>

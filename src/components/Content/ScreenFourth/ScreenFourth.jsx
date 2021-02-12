@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './ScreenFourth.module.css';
 import css from '../img/css3.png';
+import light from '../img/light.png';
 import SuggestedItem from './SuggestedItem/SuggestedItem';
 import PropTypes from 'prop-types';
 
@@ -10,8 +11,8 @@ const ScreenFourth = (props) => {
       .map((el) => <SuggestedItem key={el.price} itemName={el.itemName} price={el.price} img={el.img} />)
    return (
       <div className={classes.screen_4}>
-         <div className={classes.screen_2_image}>
-            <img src="img/content/light.png" alt=""></img>
+         <div className={classes.screen_4_img}>
+            <img src={light} alt=""></img>
          </div>
          <div className={classes.screen_4_image}>
             <img src={css} alt=""></img>

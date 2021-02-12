@@ -20,6 +20,7 @@ const Content = (props) => {
                options={props.state.screenFirstData.options}
             />
             <ScreenSecond
+               title={props.state.screenSecondData.title}
                mensCuts={props.state.screenSecondData.mensCuts}
                infoPerson={props.state.screenSecondData.infoPerson}
                available={props.state.screenSecondData.available}

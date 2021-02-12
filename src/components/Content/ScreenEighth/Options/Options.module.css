@@ -19,16 +19,16 @@
    cursor: pointer;
 }
 
-.option_active {
+.active {
    background: url(../../img/check.png) 5% 45% no-repeat, url(../../img/rectangle2.png) 0 1px no-repeat;
    padding-left: 27px;
 }
 
-.options_active {
+.actives {
    background: #6043F5;
-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-border-radius: 10px;
-color: #FFFFFF;
-transition: 1s;
+   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+   border-radius: 10px;
+   color: #FFFFFF;
+   transition: 1s;
 }
 

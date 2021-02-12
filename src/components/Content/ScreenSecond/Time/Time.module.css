@@ -1,0 +1,27 @@
+.time_wrapper {
+   flex: 0 1 25%;
+   padding: 0px 4px;
+}
+
+.time_day {
+   margin-bottom: 8px;
+   background: #F8F8F8;
+   border-radius: 4px;
+   font-weight: 300;
+   font-size: 10px;
+   line-height: 18px;
+   color: #9F9FA6;
+   text-align: center;
+   text-transform: uppercase;
+}
+
+.act {
+   border: 1px solid #693EFF;
+   color: #693EFF;
+}
+
+.act_1 {
+   background: #693EFF;
+   border: 1px solid #693EFF;
+   color: #FFFFFF;
+}

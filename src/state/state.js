@@ -17,6 +17,7 @@ const state = {
       ]
    },
    screenSecondData: {
+      title: "Ibrahim's Barbershop",
       mensCuts: {
          cutsPrice: 5,
          appointedTo: '',
@@ -25,14 +26,11 @@ const state = {
       infoPerson: 'Ibrahim Debbagh',
       available: 'Today',
       timeDay: [
-         { time: '08:30' },
-         { time: '02:30' },
-         { time: '12:20' },
-         { time: '03:30' },
-         { time: '12:30' },
-         { time: '04:20' },
-         { time: '01:00' },
-         { time: '05:20' },
+         { time1: '08:30', time2: '02:30' },
+         { time1: '02:30', time2: '12:20' },
+         { time1: '03:30', time2: '11:30' },
+         { time1: '05:30', time2: '15:30' },
+
       ]
    },
    screenThirdData: {
@@ -55,10 +53,10 @@ const state = {
    },
    screenEighthData: {
       options: [
-         { option: 'Wash', price: 6 },
-         { option: 'Buz Cut', price: 7.5 },
-         { option: 'X Cut', price: 6 },
-         { option: 'Y Cut', price: 6 },
+         { option: 'Wash', price: 6, active: false },
+         { option: 'Buz Cut', price: 7.5, active: false },
+         { option: 'X Cut', price: 6, active: true },
+         { option: 'Y Cut', price: 6, active: false },
       ]
    },
    screenNinthData: {

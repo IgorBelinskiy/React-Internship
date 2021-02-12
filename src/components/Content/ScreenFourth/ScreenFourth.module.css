@@ -6,14 +6,22 @@
    border-radius: 20px;
    flex: 1 1 auto;
 }
-
 .screen_4_container {
    margin-left: 20px;
    margin-right: 20px;
 }
 
+.screen_4_img img {
+   max-width: 100%;
+   margin-top: 15px;
+}
+.screen_4_image {
+   margin-left: 20px;
+   margin-right: 20px;
+}
 .screen_4_image img {
    width: 100%;
+   
 }
 
 .css_text {
