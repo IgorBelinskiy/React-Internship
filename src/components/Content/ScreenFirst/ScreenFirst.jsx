@@ -4,8 +4,20 @@ import html from '../img/html-logo.png';
 import Options from './Options/Options';
 import PropTypes from 'prop-types';
 
-const ScreenFirst = (props) => {
-   let optionsElements = props.options
+const screenFirstData = {
+   itemSelected: {
+      item: 'html',
+      price: 9
+   },
+   options: [
+      { option: 'Button', price: 6 },
+      { option: 'Checkbox', price: 7.5 },
+      { option: 'Submit', price: 6 },
+   ]
+}
+
+const ScreenFirst = () => {
+   let optionsElements = screenFirstData.options
       .map((el) => <Options key={el.option} option={el.option} price={el.price} />)
    return (
       <div className={classes.screen_1}>
@@ -24,8 +36,8 @@ const ScreenFirst = (props) => {
             <div className={classes.html_item_selected}>
                <div className={classes.item_selected_title}>Item selected:</div>
                <div className={classes.selected}>
-                  <div className={classes.selected_text}>{props.itemSelected.item}</div>
-                  <div className={classes.selected_price}>+${props.itemSelected.price.toFixed(2)}</div>
+                  <div className={classes.selected_text}>{screenFirstData.itemSelected.item}</div>
+                  <div className={classes.selected_price}>+${screenFirstData.itemSelected.price.toFixed(2)}</div>
                </div>
             </div>
             <div className={classes.html_more_options} >

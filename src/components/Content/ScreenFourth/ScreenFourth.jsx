@@ -4,10 +4,20 @@ import css from '../img/css3.png';
 import light from '../img/light.png';
 import SuggestedItem from './SuggestedItem/SuggestedItem';
 import PropTypes from 'prop-types';
+import css1 from '../img/css_1.png';
+import css2 from '../img/css_2.png';
+import css3 from '../img/css_3.png';
 
+const screenFourthData = {
+   item: [
+      { itemName: 'Hair Cut', price: 15, img: css1 },
+      { itemName: 'Hair Wash', price: 12.7, img: css2 },
+      { itemName: 'Buzz Cut', price: 18, img: css3 },
+   ]
+}
 
-const ScreenFourth = (props) => {
-   let suggestedItemElements = props.item
+const ScreenFourth = () => {
+   let suggestedItemElements = screenFourthData.item
       .map((el) => <SuggestedItem key={el.price} itemName={el.itemName} price={el.price} img={el.img} />)
    return (
       <div className={classes.screen_4}>
@@ -47,7 +57,7 @@ const ScreenFourth = (props) => {
    )
 }
 ScreenFourth.propTypes = {
-   gitItems: PropTypes.array,
+   item: PropTypes.array,
 }
 
 export default ScreenFourth;

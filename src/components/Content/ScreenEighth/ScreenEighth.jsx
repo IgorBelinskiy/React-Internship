@@ -3,9 +3,17 @@ import Options from './Options/Options';
 import classes from './ScreenEighth.module.css';
 import PropTypes from 'prop-types';
 
+const screenEighthData = {
+   options: [
+      { option: 'Wash', price: 6, active: false },
+      { option: 'Buz Cut', price: 7.5, active: false },
+      { option: 'X Cut', price: 6, active: true },
+      { option: 'Y Cut', price: 6, active: false },
+   ]
+}
 
-const ScreenEighth = (props) => {
-   let optionsElements = props.options
+const ScreenEighth = () => {
+   let optionsElements = screenEighthData.options
       .map((el) => <Options
          key={el.option} price={el.price}
          options={el.option}

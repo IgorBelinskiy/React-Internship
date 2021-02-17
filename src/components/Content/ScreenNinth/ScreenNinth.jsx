@@ -9,8 +9,18 @@ import git4 from '../img/git2.png';
 import GitItems from './GitItems/GitItems';
 import PropTypes from 'prop-types';
 
-const ScreenNinth = (props) => {
-   let gitItemsElements = props.gitItems
+const screenNinthData = {
+   gitItems: [
+      { value: 'checkout' },
+      { value: 'add' },
+      { value: 'commit' },
+      { value: 'pull' },
+      { value: 'push' },
+   ]
+}
+
+const ScreenNinth = () => {
+   let gitItemsElements = screenNinthData.gitItems
       .map((el) => <GitItems key={el.value} value={el.value} />)
    return (
       <div className={classes.screen_9}>

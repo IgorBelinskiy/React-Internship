@@ -1,0 +1,88 @@
+.biography {
+   background: rgb(198, 248, 222);
+   text-align: center;
+} 
+
+.biography_title {
+   padding-top: 30px;
+   font-size: 30px;
+}
+.table {
+   max-width: 1000px;
+   margin: 0 auto;
+}
+.table_title {
+   display: flex;
+   color: white;
+   background: #98bedf;
+   border-bottom: 7px solid rgb(255, 255, 255);
+   font-size: 20px;
+}
+
+.title_number {
+   flex: 0 0 10%;
+   padding: 20px 0;
+   border-right: 7px solid rgb(255, 255, 255);
+}
+
+.title_year {
+   flex: 0 0 20%;
+   padding: 20px 0;
+   border-right: 2px solid rgb(255, 255, 255);
+}
+.title_event {
+   text-align: left;
+   flex: 1 1 auto;
+   padding: 20px;
+}
+
+.form {
+   display: flex;
+   background: #98bedf;
+   border-top: 7px solid rgb(255, 255, 255);
+}
+.form_input {
+   flex: 0 1 20%;
+   padding-top: 10px;
+}
+
+.form_button {
+   flex: 0 0 20%;
+   padding-top: 10px;
+   border-right: 7px solid rgb(255, 255, 255);
+}
+
+.form_button button {
+   margin-left: 20px;
+   margin-bottom: 10px;
+   display: block;
+   width: 150px;
+}
+
+.del_btn {
+   background: #0266c4;
+}
+
+.form_action {
+   flex: 1 1 auto;
+   background: #98bedf;
+}
+.action_title {
+   color: white;
+   font-size: 20px;
+   font-weight: 700;
+   border-bottom: 7px solid rgb(255, 255, 255);
+}
+.action_items {
+   display: flex;
+   justify-content: space-around;
+   padding-top: 14px;
+}
+
+.items {
+   flex: 0 1 10%;
+   background: #D8E6F3;
+   cursor: pointer;
+   border-radius: 17%;
+   border: 2px solid rgb(255, 255, 255);
+}
