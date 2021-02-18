@@ -51,7 +51,7 @@ const Biography = () => {
       biographyData.sort((a, b) => a.year - b.year);
       console.log(biographyData)
    }
- 
+
    const onToMinByYear = () => {
       biographyData.sort((a, b) => b.year - a.year);
       console.log(biographyData)
@@ -126,7 +126,7 @@ const Biography = () => {
                   <div className={classes.action_items}>
                      <div onClick={onToMaxByYear} className={classes.items}>#1</div>
                      <div onClick={onToMinByYear} className={classes.items}>#2</div>
-                     <div onClick={onMinMaxByYear} className={classes.items}>#3</div>
+                     <div onClick={() => onMinMaxByYear(prop)} className={classes.items}>#3</div>
                      <div onClick={onRandom} className={classes.items}>#4</div>
                      <div onClick={onBubbleSort} className={classes.items}>#5</div>
                   </div>

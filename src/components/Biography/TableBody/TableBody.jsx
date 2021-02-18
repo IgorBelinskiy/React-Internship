@@ -9,8 +9,8 @@ const TableBody = ({ index, year, event, itemDelete }) => {
          <div className={classes.body_number}>{++index}</div>
          <div className={classes.body_year}>{year}</div>
          <div className={classes.body_event}>{event}</div>
-         <div onClick={itemDelete} className={classes.event_del}>del</div>
-      </div>
+         <div onClick={() => itemDelete(index)} className={classes.event_del}>del</div>
+      </div >
    )
 }
 
