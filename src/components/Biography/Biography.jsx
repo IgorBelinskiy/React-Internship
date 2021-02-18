@@ -23,7 +23,7 @@ const Biography = () => {
    let newYearEl = React.createRef();
    let newEventEl = React.createRef();
 
-   const addItem = () => {
+   const onAddItemBiography = () => {
       let data = {
          year: +newYearEl.current.value,
          event: newEventEl.current.value,
@@ -40,47 +40,34 @@ const Biography = () => {
          console.log(biographyData);
       }
    }
-   const onAddItemBiography = () => {
-      addItem();
-   }
 
-
-   const delLastItem = () => {
+   const onDelLastItemBiography = () => {
       biographyData.splice(-1, 1)
       console.log(biographyData)
    }
-   const onDelLastItemBiography = () => {
-      delLastItem();
-   }
 
 
-   const toMax = () => {
+   const onToMaxByYear = () => {
       biographyData.sort((a, b) => a.year - b.year);
       console.log(biographyData)
    }
-   const onToMaxByYear = () => {
-      toMax();
-   }
-   const toMin = () => {
+ 
+   const onToMinByYear = () => {
       biographyData.sort((a, b) => b.year - a.year);
       console.log(biographyData)
    }
-   const onToMinByYear = () => {
-      toMin();
-   }
+
 
 
    let prop;
-   const minMax = (type = false) => {
+   const onMinMaxByYear = (type = false) => {
       (type === true) ? biographyData.sort((a, b) => a.year - b.year) : biographyData.sort((a, b) => b.year - a.year);
       console.log(biographyData)
       prop = !prop;
    }
-   const onMinMaxByYear = () => {
-      minMax(prop);
-   }
 
-   const random = () => {
+
+   const onRandom = () => {
       let i, j, k;
       for (i = biographyData.length - 1; i > 0; i--) {
          j = Math.floor(Math.random() * i)
@@ -90,12 +77,9 @@ const Biography = () => {
       }
       console.log(biographyData);
    }
-   const onRandom = () => {
-      random()
-   }
 
 
-   const bubbleSort = () => {
+   const onBubbleSort = () => {
       for (let n = 0; n < biographyData.length; n++) {
          for (let i = 0; i < biographyData.length - 1 - n; i++) {
             if (biographyData[i].year > biographyData[i + 1].year) {
@@ -115,9 +99,7 @@ const Biography = () => {
       biographyData = updateBiographyData;
       console.log(biographyData)
    }
-   const onBubbleSort = () => {
-      bubbleSort();
-   }
+
    return (
       <div className={classes.biography}>
          <div className={classes.biography_title}>Biography</div>
@@ -154,5 +136,8 @@ const Biography = () => {
       </div>
    )
 }
+
+
+
 
 export default Biography;
