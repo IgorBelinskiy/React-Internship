@@ -1,12 +1,12 @@
 .biography {
-   background: rgb(198, 248, 222);
    text-align: center;
+   margin-bottom: 70px;
 } 
 
-.biography_title {
+/* .biography_title {
    padding-top: 30px;
    font-size: 30px;
-}
+} */
 .table {
    max-width: 1000px;
    margin: 0 auto;

@@ -24,7 +24,7 @@ const Header = () => {
                </div>
       </div>
       <div lang='ru' className={classes.header_text}>
-         Базовые понятия HTML, CSS, git, node, npm.
+         
             </div>
    </header>;
 }

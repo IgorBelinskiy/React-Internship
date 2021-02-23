@@ -2,9 +2,14 @@
   background: rgba(229, 229, 229, 1);
   overflow: hidden;
   font-family: "Poppins";
+  /* height: 100vh; */
 }
 
 .container {
   max-width: 1600px;
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
 }

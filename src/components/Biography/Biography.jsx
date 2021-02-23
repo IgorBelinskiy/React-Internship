@@ -4,14 +4,49 @@ import TableBody from './TableBody/TableBody';
 
 const Biography = () => {
 
-   let biographyData = [
-      { id: 1, year: 1992, event: 'Рождение' },
-      { id: 2, year: 1994, event: 'Детский сад' },
-      { id: 3, year: 1999, event: 'Школа' },
-      { id: 4, year: 2009, event: 'Университет' },
-      { id: 5, year: 2015, event: 'Окончание учебы' },
-   ]
+   let eventItem = {
+      id: 1,
+      year: 1992,
+      event: 'Рождение',
+   }
 
+
+   const biographyObj = {
+      state: {
+         eventFirst: {
+            ...eventItem
+         },
+         eventSecond: {
+            id: 2,
+            year: 1994,
+            event: 'Детский сад',
+         },
+      },
+      getState() {
+         return Object.values(this.state)
+      }
+   }
+
+
+   biographyObj.state.eventThird = {
+      id: 3,
+      year: 1999,
+      event: 'Школа',
+   };
+   // delete bio.state.eventThird; 
+   // console.log(biographyObj['state'])
+
+
+   // let biographyData = [
+   //    { id: 1, year: 1992, event: 'Рождение' },
+   //    { id: 2, year: 1994, event: 'Детский сад' },
+   //    { id: 3, year: 1999, event: 'Школа' },
+   //    { id: 4, year: 2009, event: 'Университет' },
+   //    { id: 5, year: 2015, event: 'Окончание учебы' },
+   // ]
+
+
+   let biographyData = biographyObj.getState();
 
    let itemDelete = (index) => {
       biographyData.splice(--index, 1)
@@ -102,7 +137,7 @@ const Biography = () => {
 
    return (
       <div className={classes.biography}>
-         <div className={classes.biography_title}>Biography</div>
+         <div className={classes.biography_title}></div>
          <div className={classes.table}>
             <div className={classes.table_title}>
                <div className={classes.title_number}>#</div>
