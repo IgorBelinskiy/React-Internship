@@ -9,7 +9,7 @@ const TableBody = ({ index, year, event, deleteSelectedItem }) => {
          <div className={classes.body_number}>{index + 1}</div>
          <div className={classes.body_year}>{year}</div>
          <div className={classes.body_event}>{event}</div>
-         <div onClick={() => deleteSelectedItem(index)} className={classes.event_del}>del</div>
+         <div onClick={() => { deleteSelectedItem(index) }} className={classes.event_del}>del</div>
       </div >
    )
 }
