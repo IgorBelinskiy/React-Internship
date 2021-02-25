@@ -88,12 +88,10 @@ const biographyObj = {
 
 const Biography = () => {
 
-   const itemDelete = (index) => {
-      biographyObj.deleteSelectedItem(index);
-   };
+
    let biographyElement = biographyObj.getState().biographyData
       .map((el, index) => <TableBody
-         deleteSelectedItem={itemDelete}
+         deleteSelectedItem={biographyObj.deleteSelectedItem.bind(biographyObj)}
          key={el.id}
          index={index}
          year={el.year}
