@@ -15,14 +15,19 @@ const biographyObj = {
       type: true,
    },
    addPost(data) {
-      let newEvent = {
-         id: this.state.biographyData.length + 1,
-         // year: postMessage.year,
-         // event: postMessage.event,
-         ...data,
+      if (data.year === 0 || isNaN(data.year) || data.event === '') {
+         alert('Введите корректные данные!!!')
+      } else {
+         let newEvent = {
+            id: this.state.biographyData.length + 1,
+            // year: postMessage.year,
+            // event: postMessage.event,
+            ...data,
+         }
+         this.state.biographyData.push(newEvent);
+         console.log(this.state.biographyData);
       }
-      this.state.biographyData.push(newEvent);
-      console.log(this.state.biographyData);
+
    },
    deleteLastPost() {
       this.state.biographyData.splice(-1, 1);
@@ -102,11 +107,7 @@ const Biography = () => {
          year: +newYearEl.current.value,
          event: newEventEl.current.value,
       };
-      if (data.year === 0 || isNaN(data.year) || data.event === '') {
-         alert('Введите корректные данные!!!')
-      } else {
-         biographyObj.addPost(data);
-      }
+      biographyObj.addPost(data);
    };
 
 
