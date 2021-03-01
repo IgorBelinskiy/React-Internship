@@ -4,6 +4,7 @@ import TableBody from './TableBody/TableBody';
 
 
 
+let parameter = true;
 const biographyObj = {
    state: {
       biographyData: [
@@ -53,12 +54,13 @@ const biographyObj = {
       console.log(newBiographyData);
       console.log(this.state.biographyData);
    },
-   minMax(state, type = this.state.type) {
+   minMax(state, type) {
       let newBiographyData = [...state];
       (type === true) ? newBiographyData.sort((a, b) => a.year - b.year) : newBiographyData.sort((a, b) => b.year - a.year);
       console.log(newBiographyData);
       console.log(this.state.biographyData);
-      this.state.type = !this.state.type;
+      parameter = !parameter;
+      // this.state.type = !this.state.type;
    },
    rndm(state) {
       let newBiographyData = [...state];
@@ -143,7 +145,7 @@ const Biography = () => {
                   <div className={classes.action_items}>
                      <div onClick={() => { biographyObj.toMax(biographyData) }} className={classes.items}>#1</div>
                      <div onClick={() => { biographyObj.toMin(biographyData) }} className={classes.items}>#2</div>
-                     <div onClick={() => { biographyObj.minMax(biographyData) }} className={classes.items}>#3</div>
+                     <div onClick={() => { biographyObj.minMax(biographyData, parameter) }} className={classes.items}>#3</div>
                      <div onClick={() => { biographyObj.rndm(biographyData) }} className={classes.items}>#4</div>
                      <div onClick={() => { biographyObj.bubbleSort(biographyData) }} className={classes.items}>#5</div>
                   </div>
