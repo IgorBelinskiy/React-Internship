@@ -16,7 +16,7 @@ const biographyObj = {
       ],
       type: true,
    },
-   addPost(data, state) {
+   addPost(data, state, f) {
       if (data.year === 0 || isNaN(data.year) || data.event === '') {
          alert('Введите корректные данные!!!')
       } else {
@@ -25,44 +25,43 @@ const biographyObj = {
             ...data,
          }
          let newBiographyData = [...state, newEvent];
-         console.log(newBiographyData);
-         console.log(this.state.biographyData);
+         f(state, newBiographyData)
+         return newBiographyData;
       }
-
    },
-   deleteLastPost(state) {
+   deleteLastPost(state, f) {
       let newBiographyData = [...state];
       newBiographyData.splice(-1, 1);
-      console.log(newBiographyData);
-      console.log(this.state.biographyData);
+      f(state, newBiographyData)
+      return newBiographyData;
    },
-   deleteSelectedItem(index, state) {
+   deleteSelectedItem(index, state, f) {
       let newBiographyData = [...state];
       newBiographyData.splice(index, 1);
-      console.log(newBiographyData);
-      console.log(this.state.biographyData);
+      f(state, newBiographyData)
+      return newBiographyData;
    },
-   toMax(state) {
+   toMax(state, f) {
       let newBiographyData = [...state];
       newBiographyData.sort((a, b) => a.year - b.year);
-      console.log(newBiographyData);
-      console.log(this.state.biographyData);
+      f(state, newBiographyData)
+      return newBiographyData;
    },
-   toMin(state) {
+   toMin(state, f) {
       let newBiographyData = [...state];
       newBiographyData.sort((a, b) => b.year - a.year);
-      console.log(newBiographyData);
-      console.log(this.state.biographyData);
+      f(state, newBiographyData)
+      return newBiographyData;
    },
-   minMax(state, type) {
+   minMax(state, type, f) {
       let newBiographyData = [...state];
       (type === true) ? newBiographyData.sort((a, b) => a.year - b.year) : newBiographyData.sort((a, b) => b.year - a.year);
-      console.log(newBiographyData);
-      console.log(this.state.biographyData);
       parameter = !parameter;
       // this.state.type = !this.state.type;
+      f(state, newBiographyData)
+      return newBiographyData;
    },
-   rndm(state) {
+   rndm(state, f) {
       let newBiographyData = [...state];
       let i, j, k;
       for (i = newBiographyData.length - 1; i > 0; i--) {
@@ -71,10 +70,10 @@ const biographyObj = {
          newBiographyData[i] = newBiographyData[j];
          newBiographyData[j] = k;
       }
-      console.log(newBiographyData)
-      console.log(this.state.biographyData);
+      f(state, newBiographyData)
+      return newBiographyData;
    },
-   bubbleSort(state) {
+   bubbleSort(state, f) {
       let newBiographyData = [...state];
       for (let n = 0; n < newBiographyData.length; n++) {
          for (let i = 0; i < newBiographyData.length - 1 - n; i++) {
@@ -85,8 +84,11 @@ const biographyObj = {
             }
          }
       }
-      console.log(newBiographyData)
-      console.log(this.state.biographyData);
+      f(state, newBiographyData)
+      return newBiographyData;
+   },
+   consoleLog(oldObj, newObj) {
+      return console.log(oldObj, newObj)
    },
    getState() {
       return this.state;
@@ -105,7 +107,8 @@ const Biography = () => {
          index={index}
          year={el.year}
          event={el.event}
-         state={biographyData} />)
+         state={biographyData}
+         consoleLog={biographyObj.consoleLog} />)
 
    let newYearEl = React.createRef();
    let newEventEl = React.createRef();
@@ -115,7 +118,7 @@ const Biography = () => {
          year: +newYearEl.current.value,
          event: newEventEl.current.value,
       };
-      biographyObj.addPost(data, state);
+      biographyObj.addPost(data, state, biographyObj.consoleLog);
    };
 
 
@@ -138,16 +141,16 @@ const Biography = () => {
                </div>
                <div className={classes.form_button}>
                   <button onClick={() => { onAddItemBiography(biographyData) }}>Add new event</button>
-                  <button onClick={() => { biographyObj.deleteLastPost(biographyData) }} className={classes.del_btn}>Delete last event in list</button>
+                  <button onClick={() => { biographyObj.deleteLastPost(biographyData, biographyObj.consoleLog) }} className={classes.del_btn}>Delete last event in list</button>
                </div>
                <div className={classes.form_action}>
                   <div className={classes.action_title}>Сортировка данных</div>
                   <div className={classes.action_items}>
-                     <div onClick={() => { biographyObj.toMax(biographyData) }} className={classes.items}>#1</div>
-                     <div onClick={() => { biographyObj.toMin(biographyData) }} className={classes.items}>#2</div>
-                     <div onClick={() => { biographyObj.minMax(biographyData, parameter) }} className={classes.items}>#3</div>
-                     <div onClick={() => { biographyObj.rndm(biographyData) }} className={classes.items}>#4</div>
-                     <div onClick={() => { biographyObj.bubbleSort(biographyData) }} className={classes.items}>#5</div>
+                     <div onClick={() => { biographyObj.toMax(biographyData, biographyObj.consoleLog) }} className={classes.items}>#1</div>
+                     <div onClick={() => { biographyObj.toMin(biographyData, biographyObj.consoleLog) }} className={classes.items}>#2</div>
+                     <div onClick={() => { biographyObj.minMax(biographyData, parameter, biographyObj.consoleLog) }} className={classes.items}>#3</div>
+                     <div onClick={() => { biographyObj.rndm(biographyData, biographyObj.consoleLog) }} className={classes.items}>#4</div>
+                     <div onClick={() => { biographyObj.bubbleSort(biographyData, biographyObj.consoleLog) }} className={classes.items}>#5</div>
                   </div>
                </div>
             </div>
