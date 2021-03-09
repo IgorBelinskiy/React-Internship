@@ -12,7 +12,7 @@
 }
 
 .screen_2_image img {
-   max-width: 100%;
+   width: 100%;
    margin-top: 15px;
 }
 
@@ -114,6 +114,10 @@
    font-size: 14px;
    line-height: 16px;
    color: #757575;
+}
+
+.person_stars img{
+   width: 10px;
 }
 
 .info_photo img {

@@ -1,6 +1,3 @@
-.nav {
-   flex: 1 1 auto;
-}
 .item {
    margin-bottom: 10px;
 }
@@ -10,7 +7,7 @@
  }
  
  .item a.activeLink {
-    font-weight: bold;
+   font-weight: bold;
    color: rgba(0, 60, 120, 0.864);
    text-decoration: underline;
  }
