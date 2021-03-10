@@ -2,7 +2,7 @@
   background: rgba(229, 229, 229, 1);
   overflow: hidden;
   font-family: "Poppins";
-  /* height: 100vh; */
+  position: relative;
 }
 
 .container {

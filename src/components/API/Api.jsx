@@ -24,7 +24,7 @@ class Api extends React.Component {
          <div className={classes.api} >
             <div>{isFetching ? <Preloader /> : null}</div>
             <div className={classes.title}>USERS</div>
-            <User state={users} />
+            <User users={users} />
          </div>
       )
    }

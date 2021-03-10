@@ -24,8 +24,7 @@ const Header = () => {
                </div>
       </div>
       <div lang='ru' className={classes.header_text}>
-         
-            </div>
+      </div>
    </header>;
 }
 
