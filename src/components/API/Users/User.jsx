@@ -28,7 +28,7 @@ const User = ({ users }) => {
       <div className='slider'>
          <ArrowLeft />
          <ArrowRight />
-         {users.map(({ photo, name, username, address, phone }, index) => {
+         {users.map(({ photo, name, username, address, phone}, index) => {
             return (
                <div key={index} className={current === index ? 'slide active' : 'slide'}>
                   {index === current &&
@@ -37,7 +37,7 @@ const User = ({ users }) => {
                            <img src={photo === undefined ? userPhoto : photo} alt="" />
                         </div>
                         <div className='modal-title'>{name}</div>
-                        <button onClick={toggleModal}>More information</button>
+                        <button className='userBtn' onClick={toggleModal}>More information</button>
                         <div className={modal ? 'mod act' : 'mod'}>
                            {modal ? <Modal
                               toggleModal={toggleModal}

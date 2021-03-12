@@ -3,10 +3,6 @@
    margin-bottom: 70px;
 } 
 
-/* .biography_title {
-   padding-top: 30px;
-   font-size: 30px;
-} */
 .table {
    max-width: 1000px;
    margin: 0 auto;
@@ -14,7 +10,7 @@
 .table_title {
    display: flex;
    color: white;
-   background: #98bedf;
+   background: #6a6a6a;
    border-bottom: 7px solid rgb(255, 255, 255);
    font-size: 20px;
 }
@@ -38,7 +34,7 @@
 
 .form {
    display: flex;
-   background: #98bedf;
+   background: #6a6a6a;
    border-top: 7px solid rgb(255, 255, 255);
 }
 .form_input {
@@ -57,15 +53,19 @@
    margin-bottom: 10px;
    display: block;
    width: 150px;
+   cursor: pointer;
 }
 
 .del_btn {
-   background: #0266c4;
+   background: #aeaeae;
+   border: 2px solid rgb(0, 0, 0);
+   padding: 5px 0;
+   color: rgb(0, 0, 0);
 }
 
 .form_action {
    flex: 1 1 auto;
-   background: #98bedf;
+   background: #6a6a6a;
 }
 .action_title {
    color: white;
@@ -81,7 +81,7 @@
 
 .items {
    flex: 0 1 10%;
-   background: #D8E6F3;
+   background: #aeaeae;
    cursor: pointer;
    border-radius: 17%;
    border: 2px solid rgb(255, 255, 255);
