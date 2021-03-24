@@ -2,10 +2,10 @@
    width: 60%;
    padding: 10px;
    margin: 0 auto;
-   position: relative;
    display: flex;
    justify-content: center;
    align-items: center;
+   position: relative;
 }
 
 .left,
@@ -19,7 +19,12 @@
 .c {
    display: none;
 }
-
+.left:hover{
+   transform: scale(1.2);
+}
+.right:hover{
+   transform: scale(1.2);
+}
 .left {
    top: 50%;
    left: 5%;
@@ -38,8 +43,7 @@
    opacity: 0;
    transition-duration: 1s ease;
    margin-top: 30px;
-   padding-top: 20px;
-   background: rgba(32, 32, 32, 0.3);
+   background: linear-gradient(45deg, #F17C58, #E94584, #24AADB, #27DBB1, #FFDC18, #FF3706);
    border-radius: 10px;
    box-shadow: 0 1px 4px rgba(0, 0, 0, 1),
       -23px 0 20px -23px rgba(0, 0, 0, .8),
@@ -49,7 +53,15 @@
 
 .items {
    width: 300px;
-   
+   border-radius: 10px;
+   padding-bottom: 20px;
+}
+.itemsActive {
+   background:linear-gradient(to right, rgb(42, 181, 206) 0%, rgb(72, 117, 208) 100%);
+}
+
+.item {
+   padding-top: 20px;
 }
 
 .slide.active {
@@ -58,85 +70,95 @@
    transform: scale(1.2);
 }
 
-.mod {
-   opacity: 0;
-   transition-duration: .8s ease;
-   background: rgba(32, 32, 32, 0.3);
-} 
-.mod.act {
-   opacity: 1;
-   transition-duration: .8s;
-}
 
-.modal-body {
-   position: absolute;
-   z-index: 9999;
-   top: -195%;
-   left: -283%;
-   width: 2000px;
-   background: rgba(5, 5, 5, 0.9);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   height: 100vh;
-}
-
-.modal-content {
-   padding-top: 20px;
-   width: 300px;
-   background: rgb(131, 208, 247);
-   color: rgb(0, 0, 0);
-   border-radius: 12px;
-   box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
-   position: relative;
-}
- 
-.modal-title {
-   font-size: 20px;
-   font-weight: bold;
-   text-decoration: underline;
-   padding-bottom: 15px;
-}
-.modal-item {
-   padding-bottom: 10px;
-}
-
-.modal-close{
-   position: absolute;
-   top: 0;
-   right: 0;
-   font-size: 12px;
-   margin-right: 12px;
-   margin-top: 8px;
-   padding: 0 4px;
-   border-radius: 5px;
-   opacity: 0.7;
-   border: 1px solid rgba(0, 0, 0, 0.251);
-   cursor: pointer;
-   transition: .5s;
-}
-
-.modal-close:hover{
-   opacity: 1;
-   transform: scale(1.2);
-   border: 1px solid rgba(0, 0, 0, 0.751);
-}
 
 .userBtn {
    border: none;
    border-radius: 8px;
-   padding: 8px;
+   padding: 3px 8px;
    margin-top: 6px;
-   margin-bottom: 10px;
-   background: rgb(93, 94, 94);
+   margin-bottom: 13px;
+   background: rgba(5, 99, 167, 0.816);
+   outline: none;
    color: white;
    cursor: pointer;
-   transition: .3s
+   transition: .3s;
+   text-decoration: none;
+   border: 1px solid rgba(0, 0, 0, 1)
+
 }
 
-.userBtn:hover{
-   transform: scale(1.1);
-   background: rgb(4, 65, 248);
+.user-title {
+   margin-bottom: 15px;
+   font-size: 26px;
+   cursor: pointer;
+}
+
+.activeTitle {
+   color: rgb(255, 255, 255);
+   font-weight: bold;
+
+}
+
+.modal {
+   height: 100vh;
+   background: #000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+}
+
+.modal_container {
+   color: #fff;
+   max-width: 1000px;
+}
+
+.modal_wrapper {
+   display: flex;
+}
+
+.modal_img {
+   flex: 0 1 60%;
+}
+
+.modal_img img{
+   width: 100%;
+}
+
+.modal_item {
+   flex: 0 1 40%;
+   background:
+        linear-gradient(red, transparent),
+        linear-gradient(to top left, lime, transparent),
+        linear-gradient(to top right, blue, transparent);
+    background-blend-mode: screen;
+    padding-top: 70px;
+
+   
+}
+
+.modal_text {
+   border: 1px solid #fff;
+   text-align: center;
+   padding: 10px 0;
+   color:#000;
+   font-weight: bold;
+   cursor: move;
+}
+
+.modal_btn {
+   position: absolute;
+   top: 50px;
+   left: 60px;
+}
+
+.modal_btn-text {
+   color: #fff;
+   font-size: 32px;
+   border: 3px solid #fff;
+   border-radius: 6px;
+   padding: 7px 10px 3px 10px;
 }
 
 @media (max-width: 1000px) {
@@ -146,4 +168,18 @@
    .right {
       right: -14%;
    }
+}
+
+ul {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+}
+
+ul li {
+   padding: 0;
+   margin: 0;
+   margin-bottom: 20px;
+   margin-right: 20px;
+   margin-left: 20px;
 }

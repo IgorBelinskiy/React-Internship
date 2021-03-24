@@ -1,10 +1,16 @@
 .content {
-   background: rgb(196, 196, 196);
+   background:
+        linear-gradient(red, transparent),
+        linear-gradient(to top left, lime, transparent),
+        linear-gradient(to top right, blue, transparent);
+    background-blend-mode: screen;
 }
 
 .content_body {
    display: flex;
    justify-content: space-between;
+   max-width: 1600px;
+   margin: 0 auto;
 }
 
 .body_columns {
@@ -54,4 +60,24 @@
       flex: 0 1 100%;
       margin-bottom: 20px;
    }
+}
+
+.btn_home {
+   margin-top: 30px;
+   padding-bottom: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 26px;
+}
+
+.btn_text {
+   background: #fff;
+   color: rgb(29, 2, 137);
+   padding: 5px 10px;
+   font-weight: 700;
+   border-radius: 10px;
+   width: 70px;
+   text-align: center;
+   border: 1px solid rgb(0, 0, 0);
 }

@@ -1,29 +1,27 @@
 
 import './App.css';
-import Header from './components/Header/Header';
 import Content from './components/Content/Content';
-import Footer from './components/Footer/Footer';
 import Biography from './components/Biography/Biography';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Api from './components/API/Api';
+import Home from './components/Home/Home';
+import Modall from './components/API/Users/Modall';
+
+
 
 
 const App = () => {
+
+
   return (
     <BrowserRouter>
-      <div className="app-wrapper">
-        <div className="container">
-          <Header />
-          <Navbar />
-          <div className="wrapper">
-            <Route exact path="/bk" render={() => <Content />} />
-            <Route exact path="/bio" render={() => <Biography />} />
-            <Route exact path="/api" render={() => <Api />} />
-          </div>
-          <Footer />
-        </div>
-      </div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/bk" component={Content} />
+        <Route exact path="/bio" component={Biography} />
+        <Route exact path="/api" component={Api} />
+        <Route exact path="/api/:id" component={Modall} />
+      </Switch>
     </BrowserRouter>
   );
 }

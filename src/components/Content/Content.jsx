@@ -9,6 +9,9 @@ import ScreenSixth from './ScreenSixth/ScreenSixth';
 import ScreenSeventh from './ScreenSeventh/ScreenSeventh';
 import ScreenEighth from './ScreenEighth/ScreenEighth';
 import ScreenNinth from './ScreenNinth/ScreenNinth';
+import { GiReturnArrow } from 'react-icons/gi'
+import { Link } from 'react-router-dom';
+
 
 
 const Content = () => {
@@ -31,6 +34,9 @@ const Content = () => {
             <ScreenEighth />
             <ScreenNinth />
          </div>
+      </div>
+      <div className={classes.btn_home}>
+         <Link to='/' className={classes.btn_text}><GiReturnArrow /></Link>
       </div>
    </div>
 }

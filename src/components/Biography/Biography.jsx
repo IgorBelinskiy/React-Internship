@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classes from './Biography.module.css';
 import TableBody from './TableBody/TableBody';
-
+import { GiReturnArrow } from 'react-icons/gi';
 
 
 let parameter = true;
@@ -124,37 +125,42 @@ const Biography = () => {
 
    return (
       <div className={classes.biography}>
-         <div className={classes.biography_title}></div>
-         <div className={classes.table}>
-            <div className={classes.table_title}>
-               <div className={classes.title_number}>#</div>
-               <div className={classes.title_year}>Year</div>
-               <div className={classes.title_event}>Event in life</div>
-            </div>
-            {
-               biographyElement
-            }
-            <div className={classes.form}>
-               <div className={classes.form_input}>
-                  <textarea ref={newYearEl} placeholder='Введите год'></textarea>
-                  <textarea ref={newEventEl} placeholder='Введите событие'></textarea>
+         <div className={classes.biography_wrapper}>
+            <div className={classes.table}>
+               <div className={classes.table_title}>
+                  <div className={classes.title_number}>#</div>
+                  <div className={classes.title_year}>Year</div>
+                  <div className={classes.title_event}>Event in life</div>
                </div>
-               <div className={classes.form_button}>
-                  <button onClick={() => { onAddItemBiography(biographyData) }}>Add new event</button>
-                  <button onClick={() => { biographyObj.deleteLastPost(biographyData, biographyObj.consoleLog) }} className={classes.del_btn}>Delete last event in list</button>
-               </div>
-               <div className={classes.form_action}>
-                  <div className={classes.action_title}>Сортировка данных</div>
-                  <div className={classes.action_items}>
-                     <div onClick={() => { biographyObj.toMax(biographyData, biographyObj.consoleLog) }} className={classes.items}>#1</div>
-                     <div onClick={() => { biographyObj.toMin(biographyData, biographyObj.consoleLog) }} className={classes.items}>#2</div>
-                     <div onClick={() => { biographyObj.minMax(biographyData, parameter, biographyObj.consoleLog) }} className={classes.items}>#3</div>
-                     <div onClick={() => { biographyObj.rndm(biographyData, biographyObj.consoleLog) }} className={classes.items}>#4</div>
-                     <div onClick={() => { biographyObj.bubbleSort(biographyData, biographyObj.consoleLog) }} className={classes.items}>#5</div>
+               {
+                  biographyElement
+               }
+               <div className={classes.form}>
+                  <div className={classes.form_input}>
+                     <textarea ref={newYearEl} placeholder='Введите год'></textarea>
+                     <textarea ref={newEventEl} placeholder='Введите событие'></textarea>
+                  </div>
+                  <div className={classes.form_button}>
+                     <button onClick={() => { onAddItemBiography(biographyData) }}>Add new event</button>
+                     <button onClick={() => { biographyObj.deleteLastPost(biographyData, biographyObj.consoleLog) }} className={classes.del_btn}>Delete last event in list</button>
+                  </div>
+                  <div className={classes.form_action}>
+                     <div className={classes.action_title}>Сортировка данных</div>
+                     <div className={classes.action_items}>
+                        <div onClick={() => { biographyObj.toMax(biographyData, biographyObj.consoleLog) }} className={classes.items}>#1</div>
+                        <div onClick={() => { biographyObj.toMin(biographyData, biographyObj.consoleLog) }} className={classes.items}>#2</div>
+                        <div onClick={() => { biographyObj.minMax(biographyData, parameter, biographyObj.consoleLog) }} className={classes.items}>#3</div>
+                        <div onClick={() => { biographyObj.rndm(biographyData, biographyObj.consoleLog) }} className={classes.items}>#4</div>
+                        <div onClick={() => { biographyObj.bubbleSort(biographyData, biographyObj.consoleLog) }} className={classes.items}>#5</div>
+                     </div>
                   </div>
                </div>
             </div>
+            <div className={classes.btn_home}>
+               <Link to='/' className={classes.btn_text}><GiReturnArrow /></Link>
+            </div>
          </div>
+
       </div>
    )
 }

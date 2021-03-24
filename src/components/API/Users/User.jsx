@@ -1,58 +1,43 @@
-import React, { useState } from 'react'
-import './User.css'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import userPhoto from '../../../assets/img/user.png'
-import arrowLeft from '../../../assets/img/arrowleft.svg'
-import arrowRight from '../../../assets/img/arrowright.svg'
-import Modal from './Modal'
 
 
 
-const User = ({ users }) => {
 
-   const [modal, setModal] = useState(false)
-   const [current, setCurrent] = useState(0)
-   const length = users.length;
-
-   const toggleModal = () => {
-      setModal(prev => !prev)
-   }
-
-   const nextSlide = () => setCurrent(current === length - 1 ? 0 : current + 1)
-   const prevSlide = () => setCurrent(current === 0 ? length - 1 : current - 1)
-
-   const ArrowLeft = () => <img className={modal ? 'c' : 'left'} src={arrowLeft} alt='left' onClick={prevSlide} />
-   const ArrowRight = () => <img className={modal ? 'c' : 'right'} src={arrowRight} alt='right' onClick={nextSlide} />
+const User = ({ users, current, activeUser, activeUserTitle }) => {
 
 
    return (
-      <div className='slider'>
-         <ArrowLeft />
-         <ArrowRight />
-         {users.map(({ photo, name, username, address, phone}, index) => {
+      <>
+         {users.map(({ photo, name, username, address, phone }, index) => {
+
             return (
                <div key={index} className={current === index ? 'slide active' : 'slide'}>
-                  {index === current &&
-                     (<div className='items'>
+                  {index === current && (
+                     <div className={activeUser.isActiveItem ? 'items itemsActive' : 'items'}>
                         <div className='item'>
-                           <img src={photo === undefined ? userPhoto : photo} alt="" />
+                           <img
+                              // onError={() => alert('Ошибка во время загрузки изображения')}
+                              // onLoad={() => alert(`Изображение загружено`)}
+                              src={photo === undefined
+                                 ? userPhoto
+                                 : photo} alt="userphoto" />
                         </div>
-                        <div className='modal-title'>{name}</div>
-                        <button className='userBtn' onClick={toggleModal}>More information</button>
-                        <div className={modal ? 'mod act' : 'mod'}>
-                           {modal ? <Modal
-                              toggleModal={toggleModal}
-                              username={username}
-                              address={address}
-                              phone={phone}
-                           /> : null}
-                        </div>
+                        <div onClick={activeUserTitle} className={activeUser.isActiveUserTitle ? 'user-title activeTitle' : 'user-title'}>{name}</div>
+                        <Link to={{
+                           pathname: `/api/${username}`,
+                           state: { username: username, address: address, phone: phone }
+                        }} className='userBtn'>More...</Link>
                      </div>
-                     )}
+                  )}
                </div>
             )
          })}
-      </div>
+      </>
    )
 }
 
-export default User;
+export default User
+
+

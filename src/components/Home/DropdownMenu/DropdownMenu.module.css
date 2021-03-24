@@ -1,0 +1,21 @@
+.dropdown_menu {
+   position: absolute;
+   top: 80px;
+   width: 100%;
+   background: rgba(0, 0, 0, 0.415);
+   font-size: 18px;
+}
+
+.dropdown_item {
+   display: block;
+   width: 100%;
+   color: #fff;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   text-align: center;
+   transition: all .4s;
+}
+
+.dropdown_item:hover {
+   background: rgba(0, 133, 250, 0.565);
+}

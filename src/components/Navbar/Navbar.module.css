@@ -1,7 +1,9 @@
 .item {
    margin-bottom: 10px;
    margin-right: 25px;
-   
+}
+.item:first-child {
+  margin-left: 25px;
 }
 .item a{
    color: rgb(0, 0, 0);
