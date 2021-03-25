@@ -3,10 +3,13 @@ import classes from './Header.module.css';
 import { AiFillGithub, AiFillInstagram } from 'react-icons/ai'
 import { FaTelegramPlane } from 'react-icons/fa'
 import DropdownMenu from '../Home/DropdownMenu/DropdownMenu';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
-
+   const [click, setClick] = useState(false)
    const [dropdown, setDropdown] = useState(false)
+
+   const handleClick = () => setClick(!click)
 
    const onMouseEnter = () => {
       if (window.innerWidth < 960) {
@@ -23,6 +26,8 @@ const Header = () => {
       }
    }
 
+
+
    return <header className={classes.header}>
       <div className={classes.header_title}>
          <div className={classes.title_links}>
@@ -36,6 +41,9 @@ const Header = () => {
                <AiFillGithub className={classes.icon} />
             </a>
          </div>
+         <div className={classes.menu_icon} onClick={handleClick}>
+            <i className={click ? 'fas fa-times' : 'fas fa-bars'}></i>
+         </div>
          <div
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
@@ -48,9 +56,16 @@ const Header = () => {
             {dropdown && <DropdownMenu setDropdown={setDropdown} />}
          </div>
       </div>
-      <div className={classes.header_text}>
+      <div onClick={handleClick} className={click ? `${classes.mobile_menu} ${classes.mobile_menu_active}` : classes.mobile_menu}>
+         <div className={classes.mobile_menu_wrapper}>
+            <div className={classes.mobile_links}>
+               <Link to='/bk' className={classes.mobile_link}>basic knowledge</Link>
+               <Link to='/bio' className={classes.mobile_link}>biography</Link>
+               <Link to='/api' className={classes.mobile_link}>api</Link>
+            </div>
+         </div>
       </div>
-   </header>;
+   </header >;
 }
 
 export default Header;
