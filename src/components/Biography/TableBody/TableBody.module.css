@@ -17,6 +17,8 @@
    font-size: 20px;
 }
 
+
+
 .body_year {
    flex: 0 1 20%;
    padding: 20px 0;
@@ -38,4 +40,18 @@
    background: #6a6a6a;
    border-left: 2px solid rgb(255, 255, 255);
    cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.body_year_active {
+   background: rgb(0, 200, 255);
+   color: rgb(22, 0, 42);
+   font-weight: bold;
+}
+.body_event_active {
+   background: rgb(0, 200, 255);
+   color: rgb(22, 0, 42);
+   font-weight: bold;
 }

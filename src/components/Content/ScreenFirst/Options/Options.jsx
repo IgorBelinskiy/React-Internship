@@ -2,17 +2,26 @@ import React from 'react'
 import classes from './Options.module.css';
 import PropTypes from 'prop-types';
 
-const Options = (props) => {
+const Options = ({ options, toggleOptions }) => {
    return (
-      <div className={classes.options}>
-         <div className={classes.option}>{props.option}</div>
-         <div className={classes.option_price}>+${props.price.toFixed(2)}</div>
+      <div>
+         {options.map((el, index) => {
+            return (
+               <div
+                  key={index}
+                  onClick={() => toggleOptions(index)}
+                  className={!el.isActive ? classes.options : `${classes.options} ${classes.actives}`}>
+                  <div className={!el.isActive ? classes.option : `${classes.option} ${classes.active}`}>{el.option}</div>
+                  <div className={classes.option_price}>+${el.price.toFixed(2)}</div>
+               </div>
+            )
+         })}
       </div>
    )
 }
 Options.propTypes = {
-   option: PropTypes.string,
-   price: PropTypes.number,
+   options: PropTypes.array,
+   toggleOptions: PropTypes.func
 }
 
 export default Options;

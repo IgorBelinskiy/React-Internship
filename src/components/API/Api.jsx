@@ -3,8 +3,7 @@ import classes from './Api.module.css'
 import * as axios from 'axios';
 import Users from './Users/Users';
 import Preloader from './Preloader/Preloader';
-import { GiReturnArrow } from 'react-icons/gi';
-import { Link } from 'react-router-dom';
+import ButtonHome from '../ButtonHome/ButtonHome';
 
 
 
@@ -20,19 +19,21 @@ class Api extends React.Component {
          .then((data) => this.setState({ users: data, isFetching: false, }))
    }
 
-
-
    render() {
 
       const { users, isFetching } = this.state;
+      if (isFetching) {
+         return (
+            <div className={classes.api}>
+               <Preloader />
+            </div>
+         )
+      }
       return (
          <div className={classes.api} >
             <div className={classes.title}>USERS</div>
-            <div>{isFetching ? <Preloader /> : null}</div>
             <Users users={users} />
-            <div className={classes.btn_home}>
-               <Link to='/' className={classes.btn_text}><GiReturnArrow /></Link>
-            </div>
+            <ButtonHome />
          </div>
       )
    }

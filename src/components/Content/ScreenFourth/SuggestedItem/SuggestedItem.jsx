@@ -2,30 +2,35 @@ import React from 'react';
 import classes from './SuggestedItem.module.css';
 import PropTypes from 'prop-types';
 
-const SuggestedItem = (props) => {
+const SuggestedItem = ({ item }) => {
    return (
-      <div className={classes.suggested_body}>
-         <div className={classes.suggested_left}>
-            <div className={classes.suggested_left_t}>
-               {props.itemName}
-            </div>
-            <div className={classes.suggested_left_b}>
-               $ {props.price.toFixed(2)}
-            </div>
-         </div>
-         <div className={classes.suggested_medium}>
-            <img src={props.img} alt=""></img>
-         </div>
-         <div className={classes.suggested_right}>
-            <div className={classes.right_circle}></div>
-         </div>
-      </div>
+      <>
+         {item.map(({ itemName, price, img }, index) => {
+            return (
+               <div key={index} className={classes.suggested_body}>
+                  <div className={classes.suggested_left}>
+                     <div className={classes.suggested_left_t}>
+                        {itemName}
+                     </div>
+                     <div className={classes.suggested_left_b}>
+                        $ {price.toFixed(2)}
+                     </div>
+                  </div>
+                  <div className={classes.suggested_medium}>
+                     <img src={img} alt=""></img>
+                  </div>
+                  <div className={classes.suggested_right}>
+                     <div className={classes.right_circle}></div>
+                  </div>
+               </div>
+            )
+         })}
+      </>
    )
 }
+
 SuggestedItem.propTypes = {
-   itemName: PropTypes.string,
-   price: PropTypes.number,
-   img: PropTypes.string
+   item: PropTypes.array,
 }
 
 export default SuggestedItem;

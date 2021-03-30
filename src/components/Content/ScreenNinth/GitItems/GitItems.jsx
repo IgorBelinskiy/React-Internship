@@ -1,13 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const GitItems = (props) => {
+const GitItems = ({ gitItems }) => {
    return (
-      <li>{props.value}</li>
+      <>
+         {gitItems.map(({ value }, index) => {
+            return (
+               <li key={index}>{value}</li>
+            )
+         })}
+      </>
    )
 }
+
 GitItems.propTypes = {
-   value: PropTypes.string,
+   gitItems: PropTypes.array,
 }
 
 export default GitItems;
+
+

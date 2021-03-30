@@ -6,36 +6,13 @@ import pp from '../img/person-photo.png';
 import PropTypes from 'prop-types';
 import Time from './Time/Time';
 
-const screenSecondData = {
-   title: "Ibrahim's Barbershop",
-   mensCuts: {
-      cutsPrice: 5,
-      appointedTo: '',
-      time: '',
-   },
-   infoPerson: 'Ibrahim Debbagh',
-   available: 'Today',
-   timeDay: [
-      { time1: '08:30', time2: '02:30' },
-      { time1: '02:30', time2: '12:20' },
-      { time1: '03:30', time2: '11:30' },
-      { time1: '05:30', time2: '15:30' },
 
-   ]
-}
-
-const ScreenSecond = () => {
-   const TimeElements = screenSecondData.timeDay
-      .map((t) => <Time
-         key={t.time1}
-         timeOne={t.time1}
-         timeTwo={t.time2}
-      />)
+const ScreenSecond = ({ screenSecondData }) => {
 
    return (
       <div className={classes.screen_2}>
          <div className={classes.screen_2_image}>
-            <img src={light} alt=""></img>
+            <img src={light} alt="light"></img>
          </div>
          <div className={classes.screen_2_container}>
             <div className={classes.screen_2_title}>
@@ -79,20 +56,14 @@ const ScreenSecond = () => {
                <div className={classes.available_day}>{screenSecondData.available}</div>
             </div>
             <div className={classes.screen_2_time}>
-               {
-                  TimeElements
-               }
+               <Time timeDay={screenSecondData.timeDay} />
             </div>
          </div>
       </div>
    )
 }
 ScreenSecond.propTypes = {
-   title: PropTypes.string,
-   mensCuts: PropTypes.object,
-   infoPerson: PropTypes.string,
-   available: PropTypes.string,
-   timeDay: PropTypes.array,
+   screenSecondData: PropTypes.object
 }
 
 export default ScreenSecond;

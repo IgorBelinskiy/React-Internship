@@ -31,6 +31,7 @@ const Modall = (props) => {
                <div className="modal_img">
                   <img src={image} alt="" />
                </div>
+               {/* <div className='modal_body'> */}
                <DragDropContext onDragEnd={handleOnDragEnd}>
                   <Droppable droppableId='modal_item'>
                      {(provided) => (
@@ -61,6 +62,7 @@ const Modall = (props) => {
 
                   </Droppable>
                </DragDropContext>
+               {/* </div> */}
             </div>
             <div className='modal_btn'>
                <Link to='/api' className='modal_btn-text'><BsArrowReturnLeft /></Link>

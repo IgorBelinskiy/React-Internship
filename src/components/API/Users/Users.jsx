@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import './User.css'
-import arrowLeft from '../../../assets/img/arrowleft.svg'
-import arrowRight from '../../../assets/img/arrowright.svg'
 import User from './User'
-
-
+import PropTypes from 'prop-types';
 
 
 const Users = ({ users }) => {
 
-   const [modal, setModal] = useState(false)
+
    const [current, setCurrent] = useState(0)
    const [activeUser, setActiveUser] = useState({ isActiveUserTitle: false, isActiveItem: false })
    const length = users.length;
 
 
-   const toggleModal = () => {
-      setModal(prev => !prev)
-   }
 
    const nextSlide = () => setCurrent(current === length - 1 ? 0 : current + 1)
    const prevSlide = () => setCurrent(current === 0 ? length - 1 : current - 1)
@@ -52,17 +46,19 @@ const Users = ({ users }) => {
 
    return (
       <div className='slider'>
-         <img className={modal ? 'c' : 'left'} src={arrowLeft} alt='left' onClick={prevSlide} />
-         <img className={modal ? 'c' : 'right'} src={arrowRight} alt='right' onClick={nextSlide} />
          <User
             users={users}
-            toggleModal={toggleModal}
             current={current}
-            modal={modal}
             activeUser={activeUser}
-            activeUserTitle={activeUserTitle} />
+            activeUserTitle={activeUserTitle}
+            prevSlide={prevSlide}
+            nextSlide={nextSlide} />
       </div>
    )
+}
+
+Users.propTypes = {
+   users: PropTypes.array
 }
 
 export default Users;

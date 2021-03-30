@@ -1,25 +1,29 @@
 import React from 'react';
 import classes from './TableBody.module.css'
 import PropTypes from 'prop-types';
+import { ImCross } from 'react-icons/im'
 
-const TableBody = ({ index, year, event, deleteSelectedItem, state, consoleLog }) => {
+const TableBody = ({ index, year, event, deleteSelectedItem, state, isActive }) => {
 
    return (
       <div className={classes.table_body}>
          <div className={classes.body_number}>{index + 1}</div>
-         <div className={classes.body_year}>{year}</div>
-         <div className={classes.body_event}>{event}</div>
-         <div onClick={() => { deleteSelectedItem(index, state, consoleLog) }} className={classes.event_del}>del</div>
+         <div className={!isActive ? classes.body_year : `${classes.body_year} ${classes.body_year_active}`}>{year}</div>
+         <div className={!isActive ? classes.body_event : `${classes.body_event} ${classes.body_event_active}`}>{event}</div>
+         <div onClick={() => { deleteSelectedItem(index, state) }} className={classes.event_del}>
+            <ImCross />
+         </div>
       </div >
    )
 }
 
 TableBody.propTypes = {
-   id: PropTypes.number,
+   index: PropTypes.number,
    year: PropTypes.number,
    event: PropTypes.string,
    deleteSelectedItem: PropTypes.func,
-   state: PropTypes.array
+   state: PropTypes.array,
+   isActive: PropTypes.bool
 }
 
 export default TableBody;

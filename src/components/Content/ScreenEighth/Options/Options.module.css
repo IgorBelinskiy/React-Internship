@@ -20,7 +20,7 @@
 }
 
 .active {
-   background: url(../../img/check.png) 5% 45% no-repeat, url(../../img/rectangle2.png) 0 1px no-repeat;
+   background: url(../../img/check.png) 4% 45% no-repeat, url(../../img/rectangle2.png) 0 1px no-repeat;
    padding-left: 27px;
 }
 

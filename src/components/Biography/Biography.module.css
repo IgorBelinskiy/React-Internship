@@ -5,6 +5,9 @@
         linear-gradient(to top left, lime, transparent),
         linear-gradient(to top right, blue, transparent);
     background-blend-mode: screen;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 } 
 
 .biography_wrapper {
@@ -16,7 +19,7 @@
 
 }
 .table {
-   width: 1200px;
+   max-width: 1000px;
 }
 .table_title {
    display: flex;
@@ -74,6 +77,18 @@
    color: rgb(0, 0, 0);
 }
 
+.form_input {
+   margin-left: 5px;
+}
+
+.form_input textarea{
+   max-width: 300px
+}
+
+.form_button{
+   padding-right: 5px;
+}
+
 .form_action {
    flex: 1 1 auto;
    background: #6a6a6a;
@@ -99,22 +114,5 @@
 }
 
 
-.btn_home {
-   margin-top: 30px;
-   padding-bottom: 20px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-size: 26px;
-}
 
-.btn_text {
-   background: #fff;
-   color: rgb(29, 2, 137);
-   border-radius: 10px;
-   padding: 5px 10px;
-   font-weight: 700;
-   width: 70px;
-   text-align: center;
-   border: 1px solid rgb(0, 0, 0);
-}
+

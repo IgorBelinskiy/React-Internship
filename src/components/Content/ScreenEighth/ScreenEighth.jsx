@@ -3,38 +3,32 @@ import Options from './Options/Options';
 import classes from './ScreenEighth.module.css';
 import PropTypes from 'prop-types';
 
-const screenEighthData = {
-   options: [
-      { option: 'Wash', price: 6, active: false },
-      { option: 'Buz Cut', price: 7.5, active: false },
-      { option: 'X Cut', price: 6, active: true },
-      { option: 'Y Cut', price: 6, active: false },
-   ]
-}
 
-const ScreenEighth = () => {
-   let optionsElements = screenEighthData.options
-      .map((el) => <Options
-         key={el.option} price={el.price}
-         options={el.option}
-         active={el.active}
-      />)
+
+const ScreenEighth = ({ screenEighthData, screenEightOptionsToggle, screenEightBtnToggle }) => {
+
    return (
       <div className={classes.screen_8}>
          <div className={classes.screen_8_container}>
             <div className={classes.screen_8_options}>
-               {optionsElements}
+               <Options
+                  options={screenEighthData.options}
+                  screenEightOptionsToggle={screenEightOptionsToggle} />
             </div>
             <div className={classes.option_add}>Add more information</div>
             <div className={classes.html_button}>
-               <div className={`${classes.html_btn} ${classes.html_btn_active}`}>Book</div>
+               <div
+                  onClick={screenEightBtnToggle}
+                  className={screenEighthData.isBtnActive ? `${classes.html_btn} ${classes.html_btn_active}` : classes.html_btn}>Book</div>
             </div>
          </div>
       </div>
    )
 }
 ScreenEighth.propTypes = {
-   options: PropTypes.array,
+   screenEighthData: PropTypes.object,
+   screenEightOptionsToggle: PropTypes.func,
+   screenEightBtnToggle: PropTypes.func,
 }
 
 export default ScreenEighth;
