@@ -1,8 +1,8 @@
 import React from 'react'
 import classes from './Home.module.css'
 import Video from '../../assets/video/video.mp4'
-import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import HeaderContainer from '../Header/HeaderContainer'
 
 const Home = () => {
    return (
@@ -15,7 +15,7 @@ const Home = () => {
          </div>
          <div className={classes.home_container}>
             <div className={classes.home_wrapper}>
-               <Header />
+               <HeaderContainer />
                <Footer />
             </div>
          </div>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import image from '../../../assets/img/img-2.svg'
 import { BsArrowReturnLeft } from 'react-icons/bs'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import PropTypes from 'prop-types';
 
 const Modall = (props) => {
    const { address, phone, username } = props.location.state
@@ -31,7 +32,6 @@ const Modall = (props) => {
                <div className="modal_img">
                   <img src={image} alt="" />
                </div>
-               {/* <div className='modal_body'> */}
                <DragDropContext onDragEnd={handleOnDragEnd}>
                   <Droppable droppableId='modal_item'>
                      {(provided) => (
@@ -57,12 +57,9 @@ const Modall = (props) => {
                            })}
                            {provided.placeholder}
                         </ul>
-
                      )}
-
                   </Droppable>
                </DragDropContext>
-               {/* </div> */}
             </div>
             <div className='modal_btn'>
                <Link to='/api' className='modal_btn-text'><BsArrowReturnLeft /></Link>
@@ -70,6 +67,9 @@ const Modall = (props) => {
          </div>
       </div>
    )
+}
+Modall.propTypes = {
+   location: PropTypes.object
 }
 
 export default Modall;

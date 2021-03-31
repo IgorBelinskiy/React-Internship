@@ -1,11 +1,11 @@
 import classes from './DropdownMenu.module.css'
 import { Link } from 'react-router-dom'
-
+import PropTypes from 'prop-types';
 
 
 
 const DropdownMenu = ({ setDropdown }) => {
-   // const [click, setClick] = useState(false)
+
    const handleClick = () => setDropdown(false)
    return (
 
@@ -14,8 +14,10 @@ const DropdownMenu = ({ setDropdown }) => {
          <Link to='/bio' className={classes.dropdown_item}>biography</Link>
          <Link to='/api' className={classes.dropdown_item}>api</Link>
       </div>
-
    )
+}
+DropdownMenu.propTypes = {
+   setDropdown: PropTypes.func
 }
 
 export default DropdownMenu;

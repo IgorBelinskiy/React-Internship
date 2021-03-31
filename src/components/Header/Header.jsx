@@ -1,31 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classes from './Header.module.css';
 import { AiFillGithub, AiFillInstagram } from 'react-icons/ai'
 import { FaTelegramPlane } from 'react-icons/fa'
 import DropdownMenu from '../Home/DropdownMenu/DropdownMenu';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const Header = () => {
-   const [click, setClick] = useState(false)
-   const [dropdown, setDropdown] = useState(false)
-
-   const handleClick = () => setClick(!click)
-
-   const onMouseEnter = () => {
-      if (window.innerWidth < 960) {
-         setDropdown(false)
-      } else {
-         setDropdown(true)
-      }
-   }
-   const onMouseLeave = () => {
-      if (window.innerWidth < 960) {
-         setDropdown(false)
-      } else {
-         setDropdown(false)
-      }
-   }
-
+const Header = ({ click, dropdown, handleClick, onMouseEnter, onMouseLeave, setDropdown }) => {
 
 
    return <header className={classes.header}>
@@ -66,6 +47,14 @@ const Header = () => {
          </div>
       </div>
    </header >;
+}
+Header.propTypes = {
+   click: PropTypes.bool,
+   dropdown: PropTypes.bool,
+   handleClick: PropTypes.func,
+   onMouseEnter: PropTypes.func,
+   onMouseLeave: PropTypes.func,
+   setDropdown: PropTypes.func,
 }
 
 export default Header;
