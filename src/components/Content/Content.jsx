@@ -80,15 +80,15 @@ class Content extends Component {
    }
 
 
-   screenFirstBtnToggle() {
+   screenFirstBtnToggle = () => {
       this.setState({ ...this.state, screenFirst: { ...this.state.screenFirst, isBtnActive: !this.state.screenFirst.isBtnActive } })
    }
 
-   screenEightBtnToggle() {
+   screenEightBtnToggle = () => {
       this.setState({ ...this.state, screenEighth: { ...this.state.screenEighth, isBtnActive: !this.state.screenEighth.isBtnActive } })
    }
 
-   screenEightOptionsToggle(index) {
+   screenEightOptionsToggle = (index) => {
       let updateScreenEight = this.state.screenEighth.options.map((option, id) => {
          if (index === id) {
             option.active = !option.active
@@ -106,7 +106,7 @@ class Content extends Component {
             <div className={classes.content_body}>
                <div className={classes.body_columns}>
                   <ScreenFirst
-                     screenFirstBtnToggle={this.screenFirstBtnToggle.bind(this)}
+                     screenFirstBtnToggle={this.screenFirstBtnToggle}
                      screenFirstData={this.state.screenFirst} />
                   <ScreenSecond screenSecondData={this.state.screenSecond} />
                </div>
@@ -122,8 +122,8 @@ class Content extends Component {
                <div className={classes.body_columns}>
                   <ScreenEighth
                      screenEighthData={this.state.screenEighth}
-                     screenEightOptionsToggle={this.screenEightOptionsToggle.bind(this)}
-                     screenEightBtnToggle={this.screenEightBtnToggle.bind(this)} />
+                     screenEightOptionsToggle={this.screenEightOptionsToggle}
+                     screenEightBtnToggle={this.screenEightBtnToggle} />
                   <ScreenNinth screenNinthData={this.state.screenNinth} />
                </div>
             </div>

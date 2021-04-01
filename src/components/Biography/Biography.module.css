@@ -50,6 +50,7 @@
    display: flex;
    background: #6a6a6a;
    border-top: 7px solid rgb(255, 255, 255);
+   flex-wrap: wrap;
 }
 .form_input {
    flex: 0 1 20%;
@@ -116,3 +117,28 @@
 
 
 
+@media (max-width: 650px) {
+   .form_input {
+      flex: 1 1 50%;
+      display: flex;
+      justify-content: space-around;
+      margin-left: 0;
+   }
+   .form_button {
+      flex: 1 1 50%;
+      display: flex;
+      border: none;
+      justify-content: space-around;
+   }
+   .form_button button {
+      margin: 0;
+   }
+   .form_action {
+      flex: 1 1 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+   }
+   .table {
+      margin: 5px;
+   }
+}

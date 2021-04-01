@@ -24,7 +24,8 @@ class ScreenFirst extends Component {
          }
          return option
       })
-      this.setState(updateState)
+      console.log(updateState)
+      this.setState({ options: updateState })
    }
 
 

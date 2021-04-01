@@ -17,7 +17,7 @@ class BiographyContainer extends Component {
       newYear: '',
    }
 
-   addEvent(data) {
+   addEvent = (data) => {
       if (data.year === '' || data.year === 0 || data.year === '0' || isNaN(data.year) || data.event === '') {
          alert('Введите корректные данные!!!')
       } else {
@@ -30,41 +30,41 @@ class BiographyContainer extends Component {
       }
    }
 
-   updateNewYear(e) {
+   updateNewYear = (e) => {
       let year = e.target.value
       this.setState({ newYear: year })
    }
 
-   updateNewText(e) {
+   updateNewText = (e) => {
       let text = e.target.value
       this.setState({ newText: text })
    }
 
-   deleteLastPost(state) {
+   deleteLastPost = (state) => {
       let newBiographyData = [...state];
       newBiographyData.splice(-1, 1);
       this.setState({ biographyData: newBiographyData })
    }
 
-   deleteSelectedItem(index, state) {
+   deleteSelectedItem = (index, state) => {
       let newBiographyData = [...state];
       newBiographyData.splice(index, 1);
       this.setState({ biographyData: newBiographyData })
    }
 
-   toMax(state) {
+   toMax = (state) => {
       let newBiographyData = [...state];
       newBiographyData.sort((a, b) => a.year - b.year);
       this.setState({ biographyData: newBiographyData })
    }
 
-   toMin(state) {
+   toMin = (state) => {
       let newBiographyData = [...state];
       newBiographyData.sort((a, b) => b.year - a.year);
       this.setState({ biographyData: newBiographyData })
    }
 
-   minMax(state, type = this.state.type) {
+   minMax = (state, type = this.state.type) => {
       let newBiographyData = [...state];
       (type === true)
          ? newBiographyData.sort((a, b) => a.year - b.year)
@@ -75,7 +75,7 @@ class BiographyContainer extends Component {
       })
    }
 
-   rndm(state) {
+   rndm = (state) => {
       let newBiographyData = [...state];
       let i, j, k;
       for (i = newBiographyData.length - 1; i > 0; i--) {
@@ -87,7 +87,7 @@ class BiographyContainer extends Component {
       this.setState({ biographyData: newBiographyData })
    }
 
-   bubbleSort(state) {
+   bubbleSort = (state) => {
       let newBiographyData = [...state];
       for (let n = 0; n < newBiographyData.length; n++) {
          for (let i = 0; i < newBiographyData.length - 1 - n; i++) {
@@ -117,21 +117,20 @@ class BiographyContainer extends Component {
                biographyData={this.state.biographyData}
                newText={this.state.newText}
                newYear={this.state.newYear}
-               addEvent={this.addEvent.bind(this)}
-               updateNewYear={this.updateNewYear.bind(this)}
-               updateNewText={this.updateNewText.bind(this)}
-               deleteLastPost={this.deleteLastPost.bind(this)}
-               deleteSelectedItem={this.deleteSelectedItem.bind(this)}
-               toMax={this.toMax.bind(this)}
-               toMin={this.toMin.bind(this)}
-               minMax={this.minMax.bind(this)}
-               rndm={this.rndm.bind(this)}
-               bubbleSort={this.bubbleSort.bind(this)}
+               addEvent={this.addEvent}
+               updateNewYear={this.updateNewYear}
+               updateNewText={this.updateNewText}
+               deleteLastPost={this.deleteLastPost}
+               deleteSelectedItem={this.deleteSelectedItem}
+               toMax={this.toMax}
+               toMin={this.toMin}
+               minMax={this.minMax}
+               rndm={this.rndm}
+               bubbleSort={this.bubbleSort}
             />
          </>
       )
    }
-
 }
 
 
