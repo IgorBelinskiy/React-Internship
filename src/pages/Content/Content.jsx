@@ -99,7 +99,7 @@ class Content extends Component {
          }
          return option
       })
-      this.setState({ ...this.state, screenEighth: { ...this.state.screenEighth, options: updateScreenEight } })
+      this.setState(state => ({ ...state, screenEighth: { ...state.screenEighth, options: updateScreenEight } }))
    }
 
 

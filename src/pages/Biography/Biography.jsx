@@ -24,11 +24,11 @@ class Biography extends Component {
 
    componentDidUpdate(prevProps) {
       if (this.props.newText !== prevProps.newText) {
-         this.setState({ event: this.props.newText })
+         this.setState(state => ({ ...state, event: this.props.newText }))
 
       }
       if (this.props.newYear !== prevProps.newYear) {
-         this.setState({ year: this.props.newYear })
+         this.setState(state => ({ ...state, year: this.props.newYear }))
       }
    }
 
