@@ -1,0 +1,30 @@
+.screen_7 {
+   background: #FFFFFF;
+   border-radius: 20px;
+   border-bottom-right-radius: 0px;
+   border-bottom-left-radius: 0px;
+   flex: 1 1 auto;
+}
+
+.screen_7_container {
+   margin-left: 20px;
+   margin-right: 20px;
+}
+
+.screen_7_npm img{
+   width: 100%;
+}
+
+.screen_7_npm {
+   background-image: url(../../../assets/img/arrow.png);
+   background-repeat: no-repeat;
+   background-size: 20px 20px;
+   background-position: 5% 5%;
+}
+
+.npm_text {
+   font-size: 13px;
+   line-height: 17px;
+   color: #666666;
+   padding-bottom: 30px;
+}

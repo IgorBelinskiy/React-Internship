@@ -1,0 +1,59 @@
+.table_body {
+   display: flex;
+   border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.table_body:last-child {
+   border-bottom: none;
+}
+
+
+.body_number {
+   flex: 0 0 10%;
+   padding: 20px 0;
+   background: #6a6a6a;
+   color: white;
+   border-right: 7px solid rgb(255, 255, 255);
+   font-size: 20px;
+}
+
+
+
+.body_year {
+   flex: 0 1 20%;
+   padding: 20px 0;
+   background: #aeaeae53;
+   border-right: 2px solid rgb(255, 255, 255);
+   font-weight: 500;
+   font-size: 18px;
+}
+
+.body_event {
+   flex: 1 1 auto;
+   text-align: left;
+   padding-left: 30px;
+   padding: 20px;
+   background: #aeaeae53;
+   font-weight: 500;
+}
+.event_del {
+   flex: 0 0 5%;
+   padding: 20px;
+   background: #6a6a6a;
+   border-left: 2px solid rgb(255, 255, 255);
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.body_year_active {
+   background: rgb(0, 200, 255);
+   color: rgb(22, 0, 42);
+   font-weight: bold;
+}
+.body_event_active {
+   background: rgb(0, 200, 255);
+   color: rgb(22, 0, 42);
+   font-weight: bold;
+}
