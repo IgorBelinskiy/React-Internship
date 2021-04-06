@@ -1,5 +1,5 @@
 .modal {
-   height: 100vh;
+   min-height: 100vh;
    background: #000;
    display: flex;
    justify-content: center;
@@ -14,6 +14,7 @@
 
 .modal_wrapper {
    display: flex;
+   flex-wrap: wrap;
 }
 
 .modal_img {
@@ -78,6 +79,50 @@
    }
    ul.modal_item {
       flex: 0 0 100%;
-      width: 350px;
+   }
+   .modal_btn {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
    }
 }
+
+.dnd_container {
+   flex: 0 0 100%;
+   text-align: center;
+   margin-top: 20px;
+}
+
+.dnd_wrapper {
+   list-style: none;
+   flex: 0 0 100%;
+   background:
+        linear-gradient(red, transparent),
+        linear-gradient(to top left, lime, transparent),
+        linear-gradient(to top right, blue, transparent);
+   background-blend-mode: screen;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   list-style-type: none;
+   margin: 0;
+   padding-bottom: 20px;
+   padding-top: 20px;
+   margin-top: 10px;
+   
+}
+
+li.dnd {
+   color: black;
+   font-weight: bold;
+   border: 1px solid #fff;
+   padding: 10px 0;
+   margin: 10px 20px;
+   cursor: grab;
+}
+
+
+

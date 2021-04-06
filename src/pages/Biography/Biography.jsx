@@ -50,7 +50,7 @@ class Biography extends Component {
          this.props.rndm(this.props.biographyData)
       }
       if (e.code === 'KeyA' && e.shiftKey) {
-         this.setState({ isActive: !this.state.isActive })
+         this.setState(state => ({ ...state, isActive: !state.isActive }))
       }
    };
 
