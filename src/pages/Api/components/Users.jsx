@@ -43,7 +43,6 @@ const Users = ({ users }) => {
    });
 
 
-
    return (
       <div className='slider'>
          <User

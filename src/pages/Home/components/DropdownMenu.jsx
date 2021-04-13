@@ -4,20 +4,19 @@ import PropTypes from 'prop-types';
 
 
 
-const DropdownMenu = ({ setDropdown }) => {
+const DropdownMenu = ({ to, setDropdown, text }) => {
 
-   const handleClick = () => setDropdown(false)
    return (
-
-      <div onClick={handleClick} className={classes.dropdown_menu}>
-         <Link to='/bk' className={classes.dropdown_item}>basic knowledge</Link>
-         <Link to='/bio' className={classes.dropdown_item}>biography</Link>
-         <Link to='/api' className={classes.dropdown_item}>api</Link>
+      <div onClick={() => setDropdown(false)}>
+         <Link to={to} className={classes.dropdown_item}>{text}</Link>
       </div>
    )
 }
+
 DropdownMenu.propTypes = {
-   setDropdown: PropTypes.func
+   setDropdown: PropTypes.func,
+   to: PropTypes.string,
+   text: PropTypes.string
 }
 
 export default DropdownMenu;

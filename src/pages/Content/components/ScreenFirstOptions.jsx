@@ -6,7 +6,7 @@ const ScreenFirstOptions = ({ options, toggleOptions }) => (
    <>
       {options.map((el, index) => (
          <div
-            key={index}
+            key={el.id}
             onClick={() => toggleOptions(index)}
             className={!el.isActive ? classes.options : `${classes.options} ${classes.actives}`}>
             <div className={!el.isActive ? classes.option : `${classes.option} ${classes.active}`}>{el.option}</div>

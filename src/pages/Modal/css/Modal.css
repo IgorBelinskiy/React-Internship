@@ -25,29 +25,6 @@
    width: 100%;
 }
 
-.modal_item {
-   flex: 0 1 40%;
-   background:
-        linear-gradient(red, transparent),
-        linear-gradient(to top left, lime, transparent),
-        linear-gradient(to top right, blue, transparent);
-   background-blend-mode: screen;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   list-style-type: none;
-   margin: 0;
-   padding-bottom: 20px;
-}
-
-.modal_text {
-   border: 1px solid #fff;
-   text-align: center;
-   padding: 10px 0;
-   color:#000;
-   font-weight: bold;
-   cursor: move;
-}
 
 .modal_btn {
    position: absolute;
@@ -80,6 +57,10 @@
    ul.modal_item {
       flex: 0 0 100%;
    }
+   .dnd_container {
+      flex: 0 0 100%;
+      min-width: 100%;
+   }
    .modal_btn {
       position: relative;
       top: 0;
@@ -91,19 +72,22 @@
 }
 
 .dnd_container {
-   flex: 0 0 100%;
+   flex: 0 1 40%;
+   padding-top: 20px;
    text-align: center;
-   margin-top: 20px;
-}
-
-.dnd_wrapper {
-   list-style: none;
-   flex: 0 0 100%;
    background:
         linear-gradient(red, transparent),
         linear-gradient(to top left, lime, transparent),
         linear-gradient(to top right, blue, transparent);
    background-blend-mode: screen;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.dnd_wrapper {
+   list-style: none;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -112,6 +96,7 @@
    padding-bottom: 20px;
    padding-top: 20px;
    margin-top: 10px;
+   width: 100%;
    
 }
 
@@ -119,7 +104,7 @@ li.dnd {
    color: black;
    font-weight: bold;
    border: 1px solid #fff;
-   padding: 10px 0;
+   padding: 10px 10px;
    margin: 10px 20px;
    cursor: grab;
 }

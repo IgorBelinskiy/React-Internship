@@ -2,8 +2,8 @@ import React from 'react'
 import classes from './css/Api.module.css'
 import * as axios from 'axios';
 import Users from './components/Users';
-import Preloader from './components/Preloader';
 import ButtonHome from '../../components/ButtonHome/ButtonHome';
+import Preloader from '../../components/Preloader/Preloader';
 
 
 

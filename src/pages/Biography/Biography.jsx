@@ -32,8 +32,8 @@ class Biography extends Component {
       }
    }
 
-   shouldComponentUpdate(prevProps) {
-      if (prevProps.newYear > 2021) {
+   shouldComponentUpdate(nextProps) {
+      if (nextProps.newYear > 2021) {
          return false
       }
       return true
@@ -71,7 +71,6 @@ class Biography extends Component {
          rndm,
          bubbleSort
       } = this.props;
-
 
       return (
          <div className={classes.biography}>

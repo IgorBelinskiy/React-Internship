@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 const ScreenEightOptions = ({ options, screenEightOptionsToggle }) => (
    <>
-      {options.map(({ option, price, active }, index) =>
-         <div onClick={() => screenEightOptionsToggle(index)} key={index} className={!active ? classes.options : `${classes.options} ${classes.actives}`}>
+      {options.map(({ id, option, price, active }, index) =>
+         <div onClick={() => screenEightOptionsToggle(index)} key={id} className={!active ? classes.options : `${classes.options} ${classes.actives}`}>
             <div className={!active ? classes.option : `${classes.option} ${classes.active}`}>{option}</div>
             <div className={classes.option_price}>+${price.toFixed(2)}</div>
          </div>

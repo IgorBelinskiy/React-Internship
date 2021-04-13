@@ -10,9 +10,10 @@ import PropTypes from 'prop-types';
 
 const User = ({ users, current, activeUserTitle, prevSlide, nextSlide, isActiveUserTitle, isActiveItem }) => (
    <>
+
       <img className='left' src={arrowLeft} alt='left' onClick={prevSlide} />
       <img className='right' src={arrowRight} alt='right' onClick={nextSlide} />
-      {users.map(({ photo, name, username, address, phone }, index) =>
+      {users.map(({ photo, name, username, address, phone, id }, index) =>
          <div key={index} className={current === index ? 'slide active' : 'slide'}>
             {index === current && (
                <div className={isActiveItem ? 'items itemsActive' : 'items'}>
@@ -25,7 +26,7 @@ const User = ({ users, current, activeUserTitle, prevSlide, nextSlide, isActiveU
                   <div onClick={activeUserTitle} className={isActiveUserTitle ? 'user-title activeTitle' : 'user-title'}>{name}</div>
                   <Link to={{
                      pathname: `/api/${username}`,
-                     state: { username: username, address: address, phone: phone }
+                     state: { id: id }
                   }} className='userBtn'>More...</Link>
                </div>
             )}

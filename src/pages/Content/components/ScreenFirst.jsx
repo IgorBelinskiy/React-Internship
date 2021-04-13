@@ -9,9 +9,9 @@ class ScreenFirst extends Component {
    state = {
       options:
          [
-            { option: 'Button', price: 6 },
-            { option: 'Checkbox', price: 7.5 },
-            { option: 'Submit', price: 6 },
+            { id: 1, option: 'Button', price: 6 },
+            { id: 2, option: 'Checkbox', price: 7.5 },
+            { id: 3, option: 'Submit', price: 6 },
          ],
       isBtnActive: null
    }

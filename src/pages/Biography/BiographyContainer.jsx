@@ -12,7 +12,6 @@ class BiographyContainer extends Component {
          { id: 4, year: 2009, event: 'Университет' },
          { id: 5, year: 2015, event: 'Окончание учебы' },
       ],
-      type: false,
       newText: '',
       newYear: '',
    }
@@ -64,16 +63,14 @@ class BiographyContainer extends Component {
       this.setState({ ...this.state, biographyData: newBiographyData })
    }
 
-   minMax = (state, type = this.state.type) => {
+   minMax = (state) => {
       let newBiographyData = [...state];
-      (type === true)
-         ? newBiographyData.sort((a, b) => a.year - b.year)
-         : newBiographyData.sort((a, b) => b.year - a.year);
       this.setState({
          ...this.state,
-         biographyData: newBiographyData,
+         biographyData: newBiographyData.reverse(),
          type: !this.state.type
       })
+
    }
 
    rndm = (state) => {
@@ -99,21 +96,14 @@ class BiographyContainer extends Component {
             }
          }
       }
-      let updateBiographyData = newBiographyData.map((el, index) => {
-         return {
-            id: index + 1,
-            year: el.year,
-            event: el.event,
-         }
-      })
-      this.setState({ ...this.state, biographyData: updateBiographyData })
+      this.setState({ ...this.state, biographyData: newBiographyData })
    }
 
 
    render() {
 
       const { biographyData, newText, newYear } = this.state;
-
+      console.log(biographyData)
       return (
          <>
             <Biography

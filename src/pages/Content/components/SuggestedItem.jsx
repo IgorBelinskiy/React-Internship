@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 const SuggestedItem = ({ item }) => (
    <>
-      {item.map(({ itemName, price, img }, index) => (
-         <div key={index} className={classes.suggested_body}>
+      {item.map(({ id, itemName, price, img }) => (
+         <div key={id} className={classes.suggested_body}>
             <div className={classes.suggested_left}>
                <div className={classes.suggested_left_t}>
                   {itemName}

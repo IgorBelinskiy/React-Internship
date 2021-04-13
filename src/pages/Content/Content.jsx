@@ -50,9 +50,9 @@ class Content extends Component {
       },
       screenFourth: {
          item: [
-            { itemName: 'Hair Cut', price: 15, img: css1 },
-            { itemName: 'Hair Wash', price: 12.7, img: css2 },
-            { itemName: 'Buzz Cut', price: 18, img: css3 },
+            { id: 1, itemName: 'Hair Cut', price: 15, img: css1 },
+            { id: 2, itemName: 'Hair Wash', price: 12.7, img: css2 },
+            { id: 3, itemName: 'Buzz Cut', price: 18, img: css3 },
          ]
       },
       screenFifth: {
@@ -61,10 +61,10 @@ class Content extends Component {
       },
       screenEighth: {
          options: [
-            { option: 'Wash', price: 6, active: false },
-            { option: 'Buz Cut', price: 7.5, active: false },
-            { option: 'X Cut', price: 6, active: true },
-            { option: 'Y Cut', price: 6, active: false },
+            { id: 1, option: 'Wash', price: 6, active: false },
+            { id: 2, option: 'Buz Cut', price: 7.5, active: false },
+            { id: 3, option: 'X Cut', price: 6, active: true },
+            { id: 4, option: 'Y Cut', price: 6, active: false },
          ],
          isBtnActive: true,
       },

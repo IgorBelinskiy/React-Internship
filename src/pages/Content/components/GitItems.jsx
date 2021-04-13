@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const GitItems = ({ gitItems }) => (
    <>
-      {gitItems.map(({ value }, index) => <li key={index}>{value}</li>)}
+      {gitItems.map(({ value }) => <li key={value}>{value}</li>)}
    </>
 )
 

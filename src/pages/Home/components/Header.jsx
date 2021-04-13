@@ -5,9 +5,13 @@ import { FaTelegramPlane } from 'react-icons/fa'
 import DropdownMenu from './DropdownMenu';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import withDropDownMenuItem from '../../../hoc/withDropDownMenuItem';
+
+
 
 const Header = ({ click, dropdown, handleClick, onMouseEnter, onMouseLeave, setDropdown }) => {
 
+   const CurrentItem = withDropDownMenuItem(DropdownMenu)
 
    return <header className={classes.header}>
       <div className={classes.header_title}>
@@ -34,7 +38,16 @@ const Header = ({ click, dropdown, handleClick, onMouseEnter, onMouseLeave, setD
                   ? <i className='fas fa-caret-down' />
                   : <i className='fas fa-caret-up' />} React Internship
             </div>
-            {dropdown && <DropdownMenu setDropdown={setDropdown} />}
+            {dropdown &&
+               <div className={classes.dropdown_menu}>
+                  {/* <DropdownMenu to='/bk' setDropdown={setDropdown} text='basic knowledge' />
+                  <DropdownMenu to='/bio' setDropdown={setDropdown} text='biography' />
+                  <DropdownMenu to='/api' setDropdown={setDropdown} text='api' /> */}
+                  <CurrentItem to='/bk' setDropdown={setDropdown} text='basic knowledge' />
+                  <CurrentItem to='/bio' setDropdown={setDropdown} text='biography' />
+                  <CurrentItem to='/api' setDropdown={setDropdown} text='api' />
+               </div>
+            }
          </div>
       </div>
       <div
