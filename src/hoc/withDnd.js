@@ -3,7 +3,7 @@ import axios from 'axios'
 import Preloader from '../components/Preloader/Preloader'
 
 const withDnd = (WrapperComponent) => {
-   const NewItem = (props) => {
+   return (props) => {
 
       const [dnd, setDnd] = useState(null)
 
@@ -50,7 +50,9 @@ const withDnd = (WrapperComponent) => {
          handleDragEnter={handleDragEnter}
       />
    }
-   return NewItem
 }
 
-export default withDnd
+export default withDnd;
+
+
+

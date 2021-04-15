@@ -4,16 +4,13 @@ import image from '../../assets/img/img-2.svg'
 import { BsArrowReturnLeft } from 'react-icons/bs'
 import PropTypes from 'prop-types';
 import './css/Modal.css'
-import Dnd from './components/Dnd';
-import withDnd from '../../hoc/withDnd';
-
+import { DragAndDrop } from './components/Dnd'
 
 const Modal = (props) => {
    const { id } = props.location.state
 
-   const DragAndDrop = withDnd(Dnd);
-
    return (
+
       <div className='modal'>
          <div className="modal_container">
             <div className="modal_wrapper">
