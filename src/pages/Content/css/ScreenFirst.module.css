@@ -112,3 +112,8 @@
    background: #6043F5
 }
 
+@media (max-width: 600px) {
+   .screen_1 {
+      margin-top: 0;
+   }
+}

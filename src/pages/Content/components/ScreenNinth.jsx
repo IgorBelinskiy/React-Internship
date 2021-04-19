@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from '../css/ScreenNinth.module.css';
 import light from '../../../assets/img/light.png';
 import git from '../../../assets/img/git.png';
@@ -7,76 +8,72 @@ import git2 from '../../../assets/img/git4.png';
 import git3 from '../../../assets/img/git1.png';
 import git4 from '../../../assets/img/git2.png';
 import GitItems from './GitItems';
-import PropTypes from 'prop-types';
-
-
 
 const ScreenNinth = ({ screenNinthData }) => {
-
-   const { gitItems } = screenNinthData;
-
-   return (
-      <div className={classes.screen_9}>
-         <div className={classes.screen_9_img}>
-            <img src={light} alt=""></img>
-         </div>
-         <div className={classes.screen_9_image}>
-            <img src={git} alt=""></img>
-         </div>
-         <div className={classes.git_circles}>
-            <div className={classes.git_circle}></div>
-            <div className={classes.git_circle}></div>
-            <div className={`${classes.git_circle} ${classes.git_circle_active}`}></div>
-            <div className={classes.git_circle}></div>
-         </div>
-         <div className={classes.screen_9_container}>
-            <div lang='ru' className={classes.git_title}>
-               Система контроля версий — это система, записывающая изменения в файл или набор файлов
-               в течение времени и позволяющая вернуться позже к определённой версии. Для контроля версий
-               файлов в этой
-               книге в качестве примера будет использоваться исходный код программного обеспечения, хотя на
-               самом деле
-               вы можете использовать контроль версий практически для любых типов файлов.
-            </div>
-            <div className={classes.git_images}>
-               <div className={classes.git_image}>
-                  <div className={classes.git_image_item}>
-                     <img src={git1} alt=""></img>
-                  </div>
-                  <div className={classes.git_image_item}>
-                     <img src={git2} alt=""></img>
-                  </div>
-               </div>
-            </div>
-            <div className={classes.git_body_wrapper}>
-               <div className={classes.git_body}>
-                  <div className={classes.git_body_image}>
-                     <img src={git3} alt=""></img>
-                  </div>
-                  <div className={classes.git_body_text}>
-                     <ul>
-                        <GitItems gitItems={gitItems} />
-                     </ul>
-                  </div>
-               </div>
-               <div className={classes.git_body}>
-                  <div className={classes.git_body_image}>
-                     <img src={git4} alt=""></img>
-                  </div>
-                  <div lang='ru' className={classes.git_body_text}>Основы ветвления и слияния</div>
-               </div>
-            </div>
-            <div className={classes.screen_9_addmore}>
-               Learn More
-               </div>
-         </div>
+  const { gitItems } = screenNinthData;
+  const divItem = <div className={classes.git_circle} />;
+  const divItemAct = <div className={`${classes.git_circle} ${classes.git_circle_active}`} />;
+  return (
+    <div className={classes.screen_9}>
+      <div className={classes.screen_9_img}>
+        <img src={light} alt="df" />
       </div>
-   )
-}
+      <div className={classes.screen_9_image}>
+        <img src={git} alt="u" />
+      </div>
+      <div className={classes.git_circles}>
+        {divItem}
+        {divItem}
+        {divItemAct}
+        {divItem}
+      </div>
+      <div className={classes.screen_9_container}>
+        <div className={classes.git_title}>
+          Система контроля версий — это система, записывающая изменения в файл или набор файлов
+          в течение времени и позволяющая вернуться позже к определённой версии. Для контроля версий
+          файлов в этой
+          книге в качестве примера будет использоваться исходный код программного обеспечения, хотя на
+          самом деле
+          вы можете использовать контроль версий практически для любых типов файлов.
+        </div>
+        <div className={classes.git_images}>
+          <div className={classes.git_image}>
+            <div className={classes.git_image_item}>
+              <img src={git1} alt="" />
+            </div>
+            <div className={classes.git_image_item}>
+              <img src={git2} alt="" />
+            </div>
+          </div>
+        </div>
+        <div className={classes.git_body_wrapper}>
+          <div className={classes.git_body}>
+            <div className={classes.git_body_image}>
+              <img src={git3} alt="" />
+            </div>
+            <div className={classes.git_body_text}>
+              <ul>
+                <GitItems gitItems={gitItems} />
+              </ul>
+            </div>
+          </div>
+          <div className={classes.git_body}>
+            <div className={classes.git_body_image}>
+              <img src={git4} alt="" />
+            </div>
+            <div className={classes.git_body_text}>Основы ветвления и слияния</div>
+          </div>
+        </div>
+        <div className={classes.screen_9_addmore}>
+          Learn More
+        </div>
+      </div>
+    </div>
+  );
+};
 
 ScreenNinth.propTypes = {
-   screenNinthData: PropTypes.object,
-}
-
+  screenNinthData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired
+};
 
 export default ScreenNinth;

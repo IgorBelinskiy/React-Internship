@@ -4,19 +4,28 @@
         linear-gradient(red, transparent),
         linear-gradient(to top left, lime, transparent),
         linear-gradient(to top right, blue, transparent);
-    background-blend-mode: screen;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+   background-blend-mode: screen;
+   min-height: 100vh;
 } 
 
+.biography.day {
+   background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db);
+}
+
+.biography_dayNight {
+   width: 100%;
+   display: flex;
+   justify-content: flex-end;
+   padding-right: 80px;
+   padding-top: 40px;
+}
+
 .biography_wrapper {
-   height: 100vh;
    display: flex;
    align-items: center;
    justify-content: center;
    flex-direction: column;
-
+   margin-top: 50px;
 }
 .table {
    max-width: 1000px;

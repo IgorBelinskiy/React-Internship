@@ -13,6 +13,14 @@
     position: relative;
 }
 
+.api.day {
+   background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db);
+}
+
+.api_switchDayNight {
+   margin-bottom: 40px;
+}
+
 .title {
    font-size: 24px;
    font-weight: bold;

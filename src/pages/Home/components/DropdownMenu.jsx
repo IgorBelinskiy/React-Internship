@@ -1,22 +1,20 @@
-import classes from '../css/DropdownMenu.module.css'
-import { Link } from 'react-router-dom'
+import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import classes from '../css/DropdownMenu.module.css';
 
-
-
-const DropdownMenu = ({ to, setDropdown, text }) => {
-
-   return (
-      <div onClick={() => setDropdown(false)}>
-         <Link to={to} className={classes.dropdown_item}>{text}</Link>
-      </div>
-   )
-}
+const DropdownMenu = ({ to, setDropdown, text }) => (
+  <div aria-hidden="true" onClick={() => setDropdown(false)}>
+    <Link to={to} className={classes.dropdown_item}>
+      {text}
+    </Link>
+  </div>
+);
 
 DropdownMenu.propTypes = {
-   setDropdown: PropTypes.func,
-   to: PropTypes.string,
-   text: PropTypes.string
-}
+  setDropdown: PropTypes.func.isRequired,
+  to: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
+};
 
 export default DropdownMenu;

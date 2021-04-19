@@ -6,7 +6,7 @@
    height: 80px;
    display: flex;
    justify-content: space-between;
-   padding: 0 30px;
+   /* padding: 0 30px; */
    background: rgba(0, 0, 0, 0.415);
 }
 
@@ -24,6 +24,7 @@
 .title_links {
    display: flex;
    align-items: center;
+   padding-left: 20px;
 }
 
 
@@ -45,7 +46,9 @@
    display: none;
 }
 
-
+.description {
+   padding-right: 20px;
+}
 
 @media (max-width: 600px) {
    .header_title a {
@@ -110,4 +113,32 @@
    width: 100%;
    background: rgba(0, 0, 0, 0.415);
    font-size: 18px;
+}
+
+.switchDayNight {
+   color: #fff;
+   display: flex;
+   align-items: center;
+}
+
+.switchDayNight_container {
+   display: flex;
+   background: rgba(57, 57, 57, 0.524);
+   align-items: center;
+   justify-content: center;
+   padding-left: 20px;
+   padding-right: 18px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border-radius: 20px;
+}
+
+.switchDayNight_img {
+   font-size: 21px;
+   margin-left: 9px;
+   display: flex;
+}
+
+.sun {
+   color: rgb(255, 255, 255);
 }

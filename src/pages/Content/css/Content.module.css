@@ -6,6 +6,19 @@
     background-blend-mode: screen;
 }
 
+.content.day {
+   background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db);
+}
+
+.content_switchDayNight {
+   /* margin-top: 20px; */
+   padding-top: 20px;
+   margin-bottom: 20px;
+   margin-right: 50px;
+   display: flex;
+   justify-content: flex-end;
+}
+
 .content_body {
    display: flex;
    justify-content: space-between;

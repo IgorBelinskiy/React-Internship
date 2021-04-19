@@ -1,35 +1,34 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
 import withDnd from '../../../hoc/withDnd';
 
-
 const Dnd = ({ dnd, handleDragStart, handleDragEnter }) => (
-   <div className="dnd_body">
-      <h2>Drag and Drop</h2>
-      <ul
-         className='dnd_wrapper'>
-         {dnd.map((el, i) => (
-            <li
-               key={el.id}
-               className='dnd'
-               draggable={true}
-               onDragStart={() => handleDragStart(i)}
-               onDragEnter={() => handleDragEnter(i)}
-               onDragOver={(e) => e.preventDefault()}
-            >
-               {el.title} : {el.text}
-            </li>
-         )
-         )}
-      </ul>
-   </div>
-)
+  <div className="dnd_body">
+    <h2>Drag and Drop</h2>
+    <ul
+      className="dnd_wrapper"
+    >
+      {dnd.map((el, i) => (
+        <li
+          key={el.id}
+          className="dnd"
+          draggable
+          onDragStart={() => handleDragStart(i)}
+          onDragEnter={() => handleDragEnter(i)}
+          onDragOver={(e) => e.preventDefault()}
+        >
+          {`${el.title} : ${el.text}`}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 Dnd.propTypes = {
-   dnd: PropTypes.array,
-   handleDragStart: PropTypes.func,
-   handleDragEnter: PropTypes.func,
-}
+  dnd: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  handleDragStart: PropTypes.func.isRequired,
+  handleDragEnter: PropTypes.func.isRequired,
+};
 
-export const DragAndDrop = withDnd(Dnd);
-
+const DragAndDrop = withDnd(Dnd);
+export default DragAndDrop;
