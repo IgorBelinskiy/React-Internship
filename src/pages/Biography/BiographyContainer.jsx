@@ -17,17 +17,21 @@ class BiographyContainer extends Component {
 
   addEvent = (data) => {
     const { biographyData } = this.state;
-    if (data.year === '' || data.year === 0 || data.year === '0' || data.year.isNan || data.event === '') {
+    // eslint-disable-next-line no-restricted-globals
+    if (data.year === '' || data.year === 0 || data.year === '0' || isNaN(data.year) || data.event === '') {
       // eslint-disable-next-line no-alert
       alert('Введите корректные данные!!!');
+      this.setState((state) => ({
+        ...state, newText: '', newYear: '',
+      }));
     } else {
       const newEvent = {
         id: biographyData.length + 1,
         year: +data.year,
         event: data.event,
       };
-      this.setState(() => ({
-        biographyData: [...biographyData, newEvent], newText: '', newYear: '',
+      this.setState((state) => ({
+        ...state, biographyData: [...biographyData, newEvent], newText: '', newYear: '',
       }));
     }
   }

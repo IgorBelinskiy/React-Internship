@@ -44,7 +44,7 @@ class Biography extends Component {
   }
 
   updYear = (y) => {
-    this.setState((state) => ({ ...state, event: y }));
+    this.setState((state) => ({ ...state, year: y }));
   }
 
   handleKeyDown = (e) => {
