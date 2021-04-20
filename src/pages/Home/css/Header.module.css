@@ -65,6 +65,7 @@
       align-items: center;
       color: #fff;
       font-size: 30px;
+      margin-right: 20px;
    }
    .mobile_menu {
       color: #fff;
@@ -119,26 +120,4 @@
    color: #fff;
    display: flex;
    align-items: center;
-}
-
-.switchDayNight_container {
-   display: flex;
-   background: rgba(57, 57, 57, 0.524);
-   align-items: center;
-   justify-content: center;
-   padding-left: 20px;
-   padding-right: 18px;
-   padding-top: 10px;
-   padding-bottom: 10px;
-   border-radius: 20px;
-}
-
-.switchDayNight_img {
-   font-size: 21px;
-   margin-left: 9px;
-   display: flex;
-}
-
-.sun {
-   color: rgb(255, 255, 255);
 }

@@ -4,7 +4,6 @@ import { AiFillGithub, AiFillInstagram } from 'react-icons/ai';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import SwitchDayNight from '../../../components/SwitchDayNight/SwitchDayNight';
-import 'antd/dist/antd.css';
 import DropdownMenu from './DropdownMenu';
 import classes from '../css/Header.module.css';
 
