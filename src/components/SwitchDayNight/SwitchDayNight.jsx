@@ -8,22 +8,20 @@ import { SwitchConsumer } from '../../context';
 
 const SwitchDayNight = () => (
   <SwitchConsumer>
-    {({ isDay, toggleState }) => {
-      return (
-        <div
-          className={!isDay ? classes.switchDayNight_container : `${classes.switchDayNight_container} ${classes.day}`}
-        >
-          <div className={classes.switchDayNight_toggle}>
-            <Switch defaultChecked={!!isDay} onChange={toggleState} />
-          </div>
-          <div className={classes.switchDayNight_img}>
-            {!isDay
-              ? <FaMoon className={classes.moon} />
-              : <BsSun className={classes.sun} />}
-          </div>
+    {({ isDay, toggleState }) => (
+      <div
+        className={!isDay ? classes.switchDayNight_container : `${classes.switchDayNight_container} ${classes.day}`}
+      >
+        <div className={classes.switchDayNight_toggle}>
+          <Switch defaultChecked={!!isDay} onChange={toggleState} />
         </div>
-      );
-    }}
+        <div className={classes.switchDayNight_img}>
+          {!isDay
+            ? <FaMoon className={classes.moon} />
+            : <BsSun className={classes.sun} />}
+        </div>
+      </div>
+    )}
   </SwitchConsumer>
 );
 
