@@ -23,7 +23,7 @@ const Api = () => {
     axios.get('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.data)
       .then((data) => setState({ users: data, isFetching: false, }))
-      .catch(() => setState({ error: true }));
+      .catch(() => setState({ isFetching: true, error: true }));
   }, []);
 
   if (isFetching) {
