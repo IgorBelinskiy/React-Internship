@@ -25,7 +25,7 @@ const useDnd = (id) => {
     }
   };
 
-  useEffect(async () => {
+  useEffect(() => {
     fetch();
   }, []);
 
