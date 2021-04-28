@@ -1,28 +1,23 @@
-import React, { Component } from 'react';
+import React, { useState, createContext } from 'react';
 
-const SwitchContext = React.createContext();
+const SwitchContext = createContext();
 
-class SwitchDayNightProvider extends Component {
-  // eslint-disable-next-line react/state-in-constructor
-  state = {
+const SwitchDayNightProvider = (props) => {
+  const [state, setState] = useState({
     isDay: false
+  });
+
+  const toggleState = () => {
+    setState(({ isDay }) => ({ isDay: !isDay }));
   };
 
-  toggleState = () => {
-    this.setState(({ isDay }) => ({ isDay: !isDay }));
-  }
+  // eslint-disable-next-line react/prop-types
+  const { children } = props;
+  return (
+    <SwitchContext.Provider value={{ ...state, toggleState }}>
+      {children}
+    </SwitchContext.Provider>
+  );
+};
 
-  render() {
-    // eslint-disable-next-line react/prop-types
-    const { children } = this.props;
-    return (
-      <SwitchContext.Provider value={{ ...this.state, toggleState: this.toggleState }}>
-        {children}
-      </SwitchContext.Provider>
-    );
-  }
-}
-
-const SwitchConsumer = SwitchContext.Consumer;
-
-export { SwitchDayNightProvider, SwitchConsumer };
+export { SwitchDayNightProvider, SwitchContext };

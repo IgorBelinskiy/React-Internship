@@ -30,7 +30,6 @@ const Users = ({ users }) => {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
 
-    // cleanup this component
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };

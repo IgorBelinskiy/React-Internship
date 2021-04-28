@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Biography from './Biography';
 
-class BiographyContainer extends Component {
-  // eslint-disable-next-line react/state-in-constructor
-  state = {
+const BiographyContainer = () => {
+  const [state, setState] = useState({
     biographyData: [
       { id: 1, year: 1992, event: 'Рождение' },
       { id: 2, year: 1994, event: 'Детский сад' },
@@ -13,16 +12,16 @@ class BiographyContainer extends Component {
     ],
     newText: '',
     newYear: '',
-  }
+  });
 
-  addEvent = (data) => {
-    const { biographyData } = this.state;
+  const addEvent = (data) => {
+    const { biographyData } = state;
     // eslint-disable-next-line no-restricted-globals
     if (data.year === '' || data.year === 0 || data.year === '0' || isNaN(data.year) || data.event === '') {
       // eslint-disable-next-line no-alert
       alert('Введите корректные данные!!!');
-      this.setState((state) => ({
-        ...state, newText: '', newYear: '',
+      setState((prevState) => ({
+        ...prevState, newText: '', newYear: '',
       }));
     } else {
       const newEvent = {
@@ -30,55 +29,53 @@ class BiographyContainer extends Component {
         year: +data.year,
         event: data.event,
       };
-      this.setState((state) => ({
-        ...state, biographyData: [...biographyData, newEvent], newText: '', newYear: '',
+      setState((prevState) => ({
+        ...prevState, biographyData: [...biographyData, newEvent], newText: '', newYear: '',
       }));
     }
-  }
+  };
 
-  updateNewYear = (e) => {
+  const updateNewYear = (e) => {
     const year = e.target.value;
-    this.setState({ newYear: year });
-  }
+    setState((prevState) => ({ ...prevState, newYear: year }));
+  };
 
-  updateNewText = (e) => {
+  const updateNewText = (e) => {
     const text = e.target.value;
-    this.setState({ newText: text });
-  }
+    setState((prevState) => ({ ...prevState, newText: text }));
+  };
 
-  deleteLastPost = (state) => {
-    const newBiographyData = [...state];
+  const deleteLastPost = (data) => {
+    const newBiographyData = [...data];
     newBiographyData.splice(-1, 1);
-    this.setState({ biographyData: newBiographyData });
-  }
+    setState((prevState) => ({ ...prevState, biographyData: newBiographyData }));
+  };
 
-  deleteSelectedItem = (index, state) => {
-    const newBiographyData = [...state];
+  const deleteSelectedItem = (index, data) => {
+    const newBiographyData = [...data];
     newBiographyData.splice(index, 1);
-    this.setState({ biographyData: newBiographyData });
-  }
+    setState((prevState) => ({ ...prevState, biographyData: newBiographyData }));
+  };
 
-  toMax = (state) => {
-    const newBiographyData = [...state];
+  const toMax = (data) => {
+    const newBiographyData = [...data];
     newBiographyData.sort((a, b) => a.year - b.year);
-    this.setState({ biographyData: newBiographyData });
-  }
+    setState((prevState) => ({ ...prevState, biographyData: newBiographyData }));
+  };
 
-  toMin = (state) => {
-    const newBiographyData = [...state];
+  const toMin = (data) => {
+    const newBiographyData = [...data];
     newBiographyData.sort((a, b) => b.year - a.year);
-    this.setState({ biographyData: newBiographyData });
-  }
+    setState((prevState) => ({ ...prevState, biographyData: newBiographyData }));
+  };
 
-  minMax = (state) => {
-    const newBiographyData = [...state];
-    this.setState({
-      biographyData: newBiographyData.reverse(),
-    });
-  }
+  const minMax = (data) => {
+    const newBiographyData = [...data];
+    setState((prevState) => ({ ...prevState, biographyData: newBiographyData.reverse() }));
+  };
 
-  rndm = (state) => {
-    const newBiographyData = [...state];
+  const rndm = (data) => {
+    const newBiographyData = [...data];
     let i; let j; let
       k;
     // eslint-disable-next-line no-plusplus
@@ -88,11 +85,11 @@ class BiographyContainer extends Component {
       newBiographyData[i] = newBiographyData[j];
       newBiographyData[j] = k;
     }
-    this.setState({ biographyData: newBiographyData });
-  }
+    setState((prevState) => ({ ...prevState, biographyData: newBiographyData }));
+  };
 
-  bubbleSort = (state) => {
-    const newBiographyData = [...state];
+  const bubbleSort = (data) => {
+    const newBiographyData = [...data];
     // eslint-disable-next-line no-plusplus
     for (let n = 0; n < newBiographyData.length; n++) {
       // eslint-disable-next-line no-plusplus
@@ -104,32 +101,30 @@ class BiographyContainer extends Component {
         }
       }
     }
-    this.setState({ biographyData: newBiographyData });
-  }
+    setState((prevState) => ({ ...prevState, biographyData: newBiographyData }));
+  };
 
-  render() {
-    const { biographyData, newText, newYear } = this.state;
+  const { biographyData, newText, newYear } = state;
 
-    return (
-      <>
-        <Biography
-          biographyData={biographyData}
-          newText={newText}
-          newYear={newYear}
-          addEvent={this.addEvent}
-          updateNewYear={this.updateNewYear}
-          updateNewText={this.updateNewText}
-          deleteLastPost={this.deleteLastPost}
-          deleteSelectedItem={this.deleteSelectedItem}
-          toMax={this.toMax}
-          toMin={this.toMin}
-          minMax={this.minMax}
-          rndm={this.rndm}
-          bubbleSort={this.bubbleSort}
-        />
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Biography
+        biographyData={biographyData}
+        newText={newText}
+        newYear={newYear}
+        addEvent={addEvent}
+        updateNewYear={updateNewYear}
+        updateNewText={updateNewText}
+        deleteLastPost={deleteLastPost}
+        deleteSelectedItem={deleteSelectedItem}
+        toMax={toMax}
+        toMin={toMin}
+        minMax={minMax}
+        rndm={rndm}
+        bubbleSort={bubbleSort}
+      />
+    </>
+  );
+};
 
 export default BiographyContainer;

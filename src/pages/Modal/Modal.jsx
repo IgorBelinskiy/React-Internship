@@ -4,7 +4,8 @@ import { BsArrowReturnLeft } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 import image from '../../assets/img/img-2.svg';
 import './css/Modal.css';
-import DragAndDrop from './components/Dnd';
+// import DragAndDrop from './components/Dnd';
+import Dnd from './components/Dnd';
 
 const Modal = (props) => {
   const { location } = props;
@@ -19,7 +20,8 @@ const Modal = (props) => {
             <img src={image} alt="" />
           </div>
           <div className="dnd_container">
-            <DragAndDrop id={id} />
+            {/* <DragAndDrop id={id} /> */}
+            <Dnd id={id} />
           </div>
         </div>
         <div className="modal_btn">

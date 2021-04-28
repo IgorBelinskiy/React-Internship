@@ -4,6 +4,7 @@
         linear-gradient(to top left, lime, transparent),
         linear-gradient(to top right, blue, transparent);
     background-blend-mode: screen;
+    position: relative;
 }
 
 .content.day {
@@ -11,12 +12,56 @@
 }
 
 .content_switchDayNight {
-   /* margin-top: 20px; */
    padding-top: 20px;
    margin-bottom: 20px;
-   margin-right: 50px;
    display: flex;
-   justify-content: flex-end;
+   align-items: center;
+   justify-content: center;
+}
+
+.arrow_down {
+   font-size: 25px;
+   width: 40px;
+   height: 40px;
+   background: rgb(0, 32, 71);
+   color: white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 20px;
+   position: fixed;
+   right: 20px;
+   top: 20px;
+   transition: all .4s ease;
+   cursor: pointer;
+}
+
+.arrow_down.actD {
+   opacity: 0;
+   transition: all .4s ease;
+}
+
+.arrow_up {
+   font-size: 25px;
+   width: 40px;
+   height: 40px;
+   background: rgb(0, 32, 71);
+   color: white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 20px;
+   position: fixed;
+   right: 20px;
+   bottom: 30px;
+   transition: all .4s ease;
+   z-index: 22;
+   cursor: pointer;
+}
+
+.arrow_up.actU {
+   opacity: 0;
+   transition: all .4s ease;
 }
 
 .content_body {
@@ -73,5 +118,11 @@
       flex: 0 1 100%;
       margin-bottom: 20px;
    }
+   /* .arrow_down {
+      display: none;
+   }
+   .arrow_up {
+      display: none;
+   } */
 }
 
