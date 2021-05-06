@@ -12,7 +12,7 @@ const SwitchDayNight = () => {
     <div
       className={!isDay ? classes.switchDayNight_container : `${classes.switchDayNight_container} ${classes.day}`}
     >
-      <div className={classes.switchDayNight_toggle}>
+      <div>
         <Switch defaultChecked={!!isDay} onChange={toggleState} />
       </div>
       <div className={classes.switchDayNight_img}>

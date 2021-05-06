@@ -47,9 +47,9 @@ const Header = ({
         </div>
         {dropdown && (
           <div className={classes.dropdown_menu}>
-            <DropdownMenu to="/bk" setDropdown={setDropdown} text="basic knowledge" />
-            <DropdownMenu to="/bio" setDropdown={setDropdown} text="biography" />
-            <DropdownMenu to="/api" setDropdown={setDropdown} text="api" />
+            <DropdownMenu to="/bk" onClose={() => setDropdown(false)} text="basic knowledge" />
+            <DropdownMenu to="/bio" onClose={() => setDropdown(false)} text="biography" />
+            <DropdownMenu to="/api" onClose={() => setDropdown(false)} text="api" />
           </div>
         )}
       </div>

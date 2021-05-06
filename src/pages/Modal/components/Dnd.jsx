@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import useDnd from '../../../customHook/useDnd';
+// import useFetch from '../../../customHook/useFetch';
 import Preloader from '../../../components/Preloader/Preloader';
 
 const Dnd = ({ id }) => {
-  const { dnd, handleDragStart, handleDragEnter } = useDnd(id);
+  const {
+    dnd,
+    handleDragStart,
+    handleDragEnter
+  } = useDnd(id);
+
   if (dnd.loading) return <Preloader />;
   if (dnd.error) return 'Сервер не отвечает...';
   return (

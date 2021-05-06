@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import classes from '../css/DropdownMenu.module.css';
 
-const DropdownMenu = ({ to, setDropdown, text }) => (
-  <div aria-hidden="true" onClick={() => setDropdown(false)}>
+const DropdownMenu = ({ to, onClose, text }) => (
+  <div aria-hidden="true" onClick={onClose}>
     <Link to={to} className={classes.dropdown_item}>
       {text}
     </Link>
@@ -12,7 +12,7 @@ const DropdownMenu = ({ to, setDropdown, text }) => (
 );
 
 DropdownMenu.propTypes = {
-  setDropdown: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   to: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired
 };

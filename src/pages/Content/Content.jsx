@@ -101,19 +101,11 @@ const Content = () => {
   const { isDay } = useContext(SwitchContext);
 
   const changeArrowDown = () => {
-    if (window.scrollY >= 200) {
-      setVisibleArrowDown(false);
-    } else {
-      setVisibleArrowDown(true);
-    }
+    setVisibleArrowDown(window.scrollY < 200);
   };
 
   const changeArrowUp = () => {
-    if (window.scrollY <= 650) {
-      setVisibleArrowUp(false);
-    } else {
-      setVisibleArrowUp(true);
-    }
+    setVisibleArrowUp(window.scrollY > 650);
   };
 
   useEffect(() => {
