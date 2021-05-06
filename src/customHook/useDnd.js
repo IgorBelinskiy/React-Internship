@@ -6,11 +6,11 @@ const useDnd = (id) => {
     loading: true,
     error: false
   });
-  const { user } = useFetch(id);
-  
-  useEffect(() => {
+
+  useEffect(async () => {
+    const user = await useFetch(id);
     setDnd(user);
-  }, [user]);
+  }, [id]);
 
   const [draggingItem, setDraggingItem] = useState(null);
 
@@ -27,7 +27,7 @@ const useDnd = (id) => {
     setDnd(listCopy);
   };
   return ({
-    dnd, setDnd, handleDragStart, handleDragEnter
+    dnd, handleDragStart, handleDragEnter
   });
 };
 

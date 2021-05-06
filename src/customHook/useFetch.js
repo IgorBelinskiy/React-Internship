@@ -1,11 +1,6 @@
-import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const useFetch = (id) => {
-  const [user, setUser] = useState({
-    loading: true,
-    error: false
-  });
   const fetch = async () => {
     try {
       const res = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
@@ -18,16 +13,12 @@ const useFetch = (id) => {
         { id: 5, title: 'zipcode', text: data.address.zipcode },
         { id: 6, title: 'tel', text: data.phone },
       ];
-      setUser(items);
+      return items;
     } catch (e) {
-      setUser({ loading: false, error: true });
+      return ({ loading: false, error: true });
     }
   };
-
-  useEffect(() => {
-    fetch();
-  }, []);
-  return ({ user });
+  return fetch();
 };
 
 export default useFetch;
