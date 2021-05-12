@@ -53,7 +53,7 @@ const TRANSLATIONS_EN = {
     placeholderEvent: 'Enter the event',
   },
   apiPage: {
-    users: 'users',
+    users: 'Users',
     more: 'More...',
     error: 'Server not responding...'
   },
