@@ -53,8 +53,8 @@ const TRANSLATIONS_EN = {
     placeholderEvent: 'Enter the event',
   },
   apiPage: {
-    users: 'Пользователи',
-    more: 'Больше инфо...',
+    users: 'users',
+    more: 'More...',
     error: 'Server not responding...'
   },
   modalPage: {
