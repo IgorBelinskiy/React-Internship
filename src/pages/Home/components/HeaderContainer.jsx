@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Header from './Header';
 
-const HeaderContainer = () => {
+const HeaderContainer = ({ t }) => {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
@@ -30,8 +31,12 @@ const HeaderContainer = () => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       setDropdown={setDropdown}
+      t={t}
     />
   );
+};
+HeaderContainer.propTypes = {
+  t: PropTypes.func.isRequired,
 };
 
 export default HeaderContainer;

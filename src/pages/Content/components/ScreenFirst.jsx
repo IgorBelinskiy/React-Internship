@@ -15,7 +15,7 @@ const ScreenFirst = (props) => {
     isBtnActive: null
   });
 
-  const { screenFirstData, screenFirstBtnToggle } = props;
+  const { screenFirstData, screenFirstBtnToggle, t } = props;
   const { itemSelected } = screenFirstData;
   const { options, isBtnActive } = state;
 
@@ -40,12 +40,7 @@ const ScreenFirst = (props) => {
       </div>
       <div className={classes.screen_1_container}>
         <div className={classes.html_body}>
-          HTML (от английского HyperText Markup Language) — это язык гипертекстовой разметки
-          страницы. Он используется для того, чтобы дать браузеру понять, как нужно отображать
-          загруженный сайт.
-          Язык состоит из тегов — это своеобразные команды, которые преобразовываются в визуальные
-          объекты в
-          браузере пользователя.
+          {t('contentPage.html')}
         </div>
         <div className={classes.html_item_selected}>
           <div className={classes.item_selected_title}>Item selected:</div>
@@ -82,6 +77,7 @@ const ScreenFirst = (props) => {
 ScreenFirst.propTypes = {
   screenFirstData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   screenFirstBtnToggle: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
 };
 
 export default ScreenFirst;

@@ -9,7 +9,7 @@ import git3 from '../../../assets/img/git1.png';
 import git4 from '../../../assets/img/git2.png';
 import GitItems from './GitItems';
 
-const ScreenNinth = ({ screenNinthData }) => {
+const ScreenNinth = ({ screenNinthData, t }) => {
   const { gitItems } = screenNinthData;
   const divItem = <div className={classes.git_circle} />;
   const divItemAct = <div className={`${classes.git_circle} ${classes.git_circle_active}`} />;
@@ -29,12 +29,7 @@ const ScreenNinth = ({ screenNinthData }) => {
       </div>
       <div className={classes.screen_9_container}>
         <div className={classes.git_title}>
-          Система контроля версий — это система, записывающая изменения в файл или набор файлов
-          в течение времени и позволяющая вернуться позже к определённой версии. Для контроля версий
-          файлов в этой
-          книге в качестве примера будет использоваться исходный код программного обеспечения, хотя на
-          самом деле
-          вы можете использовать контроль версий практически для любых типов файлов.
+          {t('contentPage.git')}
         </div>
         <div className={classes.git_images}>
           <div className={classes.git_image}>
@@ -73,7 +68,8 @@ const ScreenNinth = ({ screenNinthData }) => {
 };
 
 ScreenNinth.propTypes = {
-  screenNinthData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired
+  screenNinthData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  t: PropTypes.func.isRequired
 };
 
 export default ScreenNinth;

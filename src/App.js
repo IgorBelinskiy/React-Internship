@@ -6,6 +6,7 @@ import Api from './pages/Api/Api';
 import Home from './pages/Home/Home';
 import Modal from './pages/Modal/Modal';
 import BiographyContainer from './pages/Biography/BiographyContainer';
+import './i18n/index';
 
 const App = () => (
   <BrowserRouter>

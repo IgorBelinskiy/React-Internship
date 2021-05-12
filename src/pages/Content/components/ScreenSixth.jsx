@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from '../css/ScreenSixth.module.css';
 import node from '../../../assets/img/node.png';
 import route from '../../../assets/img/route.png';
 
-const ScreenSixth = () => {
+const ScreenSixth = ({ t }) => {
   const line = <div className={classes.item_line} />;
   const lineAct = <div className={`${classes.item_line} ${classes.line_g}`} />;
   return (
@@ -32,19 +33,15 @@ const ScreenSixth = () => {
             </div>
           </div>
           <div className={classes.node_text}>
-            Node.js (или просто Node) — это серверная платформа для работы с JavaScript через
-            движок V8. JavaScript выполняет действие на стороне клиента, а Node — на сервере. С
-            помощью Node можно
-            писать полноценные приложения. Node умеет работать с внешними библиотеками, вызывать
-            команды из кода на
-            JavaScript и выполнять роль веб-сервера. Чтобы установить, необходимо перейти на
-            официальный сайт
-            https://nodejs.org и на главной странице скачать последнюю стабильную версию.
+            {t('contentPage.node')}
           </div>
         </div>
       </div>
     </div>
   );
+};
+ScreenSixth.propTypes = {
+  t: PropTypes.func.isRequired,
 };
 
 export default ScreenSixth;

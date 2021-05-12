@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../css/User.css';
 import User from './User';
 
-const Users = ({ users }) => {
+const Users = ({ users, t }) => {
   const [current, setCurrent] = useState(0);
   const [activeUser, setActiveUser] = useState({ isActiveUserTitle: false, isActiveItem: false });
   const arrLength = users.length;
@@ -38,6 +38,7 @@ const Users = ({ users }) => {
   return (
     <div className="slider">
       <User
+        t={t}
         users={users}
         current={current}
         activeUser={activeUser}
@@ -52,7 +53,8 @@ const Users = ({ users }) => {
 };
 
 Users.propTypes = {
-  users: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired
+  users: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  t: PropTypes.func.isRequired
 };
 
 export default Users;

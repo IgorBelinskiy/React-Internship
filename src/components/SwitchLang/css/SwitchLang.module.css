@@ -1,0 +1,16 @@
+.switchLang img {
+  width: 40px;
+}
+
+.switchLang_btn {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.switchLang_btn.brit {
+  opacity: 0.4;
+}
+
+.switchLang_btn.rus {
+  opacity: 0.4;
+}

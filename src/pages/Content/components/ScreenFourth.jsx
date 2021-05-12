@@ -5,7 +5,7 @@ import css from '../../../assets/img/css3.png';
 import light from '../../../assets/img/light.png';
 import SuggestedItem from './SuggestedItem';
 
-const ScreenFourth = ({ screenFourthData }) => {
+const ScreenFourth = ({ screenFourthData, t }) => {
   const { item } = screenFourthData;
 
   return (
@@ -18,19 +18,7 @@ const ScreenFourth = ({ screenFourthData }) => {
       </div>
       <div className={classes.screen_4_container}>
         <div className={classes.css_text}>
-          CSS – это формальный язык, служащий для описания оформления внешнего вида документа,
-          созданного с использованием языка разметки (HTML, XHTML, XML). Название происходит от
-          английского
-          Cascading Style Sheets, что означает «каскадные таблицы стилей». Назначение CSS – отделять
-          то, что задает
-          внешний вид страницы, от ее содержания. Если документ создан только с использованием HTML,
-          то
-          в нем
-          определяется не только каждый элемент, но и способ его отображения (цвет, шрифт, положение
-          блока и т.
-          д.). Если же подключены каскадные таблицы стилей, то HTML описывает только очередность
-          объектов. А за все
-          их свойства отвечает CSS.
+          {t('contentPage.css')}
         </div>
         <div className={classes.screen_4_addmore}>
           Learn More
@@ -46,7 +34,8 @@ const ScreenFourth = ({ screenFourthData }) => {
   );
 };
 ScreenFourth.propTypes = {
-  screenFourthData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired
+  screenFourthData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  t: PropTypes.func.isRequired
 };
 
 export default ScreenFourth;

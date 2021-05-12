@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Biography from './Biography';
 
 const BiographyContainer = () => {
+  const { t } = useTranslation();
   const [state, setState] = useState({
     biographyData: [
-      { id: 1, year: 1992, event: 'Рождение' },
-      { id: 2, year: 1994, event: 'Детский сад' },
-      { id: 3, year: 1999, event: 'Школа' },
-      { id: 4, year: 2009, event: 'Университет' },
-      { id: 5, year: 2015, event: 'Окончание учебы' },
+      { id: 1, year: 1992, event: t('biographyPage.event_1') },
+      { id: 2, year: 1994, event: t('biographyPage.event_2') },
+      { id: 3, year: 1999, event: t('biographyPage.event_3') },
+      { id: 4, year: 2009, event: t('biographyPage.event_4') },
+      { id: 5, year: 2015, event: t('biographyPage.event_5') },
     ],
     newText: '',
     newYear: '',
@@ -109,6 +111,7 @@ const BiographyContainer = () => {
   return (
     <>
       <Biography
+        t={t}
         biographyData={biographyData}
         newText={newText}
         newYear={newYear}

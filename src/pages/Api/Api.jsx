@@ -1,5 +1,6 @@
 /* eslint-disable react/state-in-constructor */
 import React, { useState, useEffect, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import * as axios from 'axios';
 import classes from './css/Api.module.css';
 import Users from './components/Users';
@@ -9,6 +10,7 @@ import SwitchDayNight from '../../components/SwitchDayNight/SwitchDayNight';
 import { SwitchContext } from '../../context';
 
 const Api = () => {
+  const { t } = useTranslation();
   const [state, setState] = useState({
     users: [],
     isFetching: true,
@@ -30,7 +32,7 @@ const Api = () => {
     return (
       <div className={!isDay ? classes.api : `${classes.api} ${classes.day}`}>
         <Preloader />
-        {error && <div className={classes.title}>Ошибка при загрузке...</div>}
+        {error && <div className={classes.title}>{t('apiPage.error')}</div>}
         <ButtonHome />
       </div>
     );
@@ -40,8 +42,8 @@ const Api = () => {
       <div className={classes.api_switchDayNight}>
         <SwitchDayNight />
       </div>
-      <div className={classes.title}>USERS</div>
-      <Users users={users} />
+      <div className={classes.title}>{t('apiPage.users')}</div>
+      <Users t={t} users={users} />
       <ButtonHome />
     </div>
   );

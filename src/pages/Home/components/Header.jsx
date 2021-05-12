@@ -4,11 +4,12 @@ import { AiFillGithub, AiFillInstagram } from 'react-icons/ai';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import SwitchDayNight from '../../../components/SwitchDayNight/SwitchDayNight';
+import SwitchLang from '../../../components/SwitchLang/SwitchLang';
 import DropdownMenu from './DropdownMenu';
 import classes from '../css/Header.module.css';
 
 const Header = ({
-  click, dropdown, handleClick, onMouseEnter, onMouseLeave, setDropdown
+  click, dropdown, handleClick, onMouseEnter, onMouseLeave, setDropdown, t
 }) => (
   <header className={classes.header}>
     <div className={classes.header_title}>
@@ -25,6 +26,9 @@ const Header = ({
       </div>
       <div className={classes.switchDayNight}>
         <SwitchDayNight />
+      </div>
+      <div className={classes.switchDayNight}>
+        <SwitchLang />
       </div>
       <div
         aria-hidden="true"
@@ -43,13 +47,13 @@ const Header = ({
             ? <i className="fas fa-caret-down" />
             : <i className="fas fa-caret-up" />}
           {' '}
-          React Internship
+          {t('homePage.reactInternship')}
         </div>
         {dropdown && (
           <div className={classes.dropdown_menu}>
-            <DropdownMenu to="/bk" onClose={() => setDropdown(false)} text="basic knowledge" />
-            <DropdownMenu to="/bio" onClose={() => setDropdown(false)} text="biography" />
-            <DropdownMenu to="/api" onClose={() => setDropdown(false)} text="api" />
+            <DropdownMenu to="/bk" onClose={() => setDropdown(false)} text={t('homePage.basicKnowledge')} />
+            <DropdownMenu to="/bio" onClose={() => setDropdown(false)} text={t('homePage.biography')} />
+            <DropdownMenu to="/api" onClose={() => setDropdown(false)} text={t('homePage.api')} />
           </div>
         )}
       </div>
@@ -63,9 +67,9 @@ const Header = ({
     >
       <div className={classes.mobile_menu_wrapper}>
         <div className={classes.mobile_links}>
-          <Link to="/bk" className={classes.mobile_link}>basic knowledge</Link>
-          <Link to="/bio" className={classes.mobile_link}>biography</Link>
-          <Link to="/api" className={classes.mobile_link}>api</Link>
+          <Link to="/bk" className={classes.mobile_link}>{t('homePage.basicKnowledge')}</Link>
+          <Link to="/bio" className={classes.mobile_link}>{t('homePage.biography')}</Link>
+          <Link to="/api" className={classes.mobile_link}>{t('homePage.api')}</Link>
         </div>
       </div>
     </div>
@@ -78,6 +82,7 @@ Header.propTypes = {
   onMouseEnter: PropTypes.func.isRequired,
   onMouseLeave: PropTypes.func.isRequired,
   setDropdown: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
 };
 
 export default Header;

@@ -16,6 +16,7 @@ const Biography = (props) => {
   const { isDay } = useContext(SwitchContext);
 
   const {
+    t,
     biographyData,
     newText,
     newYear,
@@ -54,12 +55,12 @@ const Biography = (props) => {
     };
   }, [biographyData]);
 
-  const updText = (t) => {
-    setState((prevState) => ({ ...prevState, event: t }));
+  const updText = (T) => {
+    setState((prevState) => ({ ...prevState, event: T }));
   };
 
-  const updYear = (y) => {
-    setState((prevState) => ({ ...prevState, year: y }));
+  const updYear = (Y) => {
+    setState((prevState) => ({ ...prevState, year: Y }));
   };
 
   useEffect(() => {
@@ -74,8 +75,8 @@ const Biography = (props) => {
         <div className={classes.table}>
           <div className={classes.table_title}>
             <div className={classes.title_number}>#</div>
-            <div className={classes.title_year}>Year</div>
-            <div className={classes.title_event}>Event in life</div>
+            <div className={classes.title_year}>{t('biographyPage.titleYear')}</div>
+            <div className={classes.title_event}>{t('biographyPage.titleEvent')}</div>
           </div>
           {
             biographyData
@@ -96,32 +97,32 @@ const Biography = (props) => {
               <textarea
                 onChange={updateNewYear}
                 value={newYear}
-                placeholder="Введите год"
+                placeholder={t('biographyPage.placeholderYear')}
                 maxLength="4"
               />
               <textarea
                 onChange={updateNewText}
                 value={newText}
-                placeholder="Введите событие"
+                placeholder={t('biographyPage.placeholderEvent')}
               />
             </div>
             <div className={classes.form_button}>
               <button type="button" onClick={() => { addEvent(state); }}>
-                Add new event
+                {t('biographyPage.addEvent')}
               </button>
               <button
                 type="button"
                 onClick={() => { deleteLastPost(biographyData); }}
                 className={classes.del_btn}
               >
-                Delete last event in list
+                {t('biographyPage.delEvent')}
               </button>
             </div>
             <div className={classes.form_action}>
               <div
                 className={classes.action_title}
               >
-                Сортировка данных
+                {t('biographyPage.sort')}
               </div>
               <div className={classes.action_items}>
                 <div
@@ -182,7 +183,8 @@ Biography.propTypes = {
   toMin: PropTypes.func.isRequired,
   minMax: PropTypes.func.isRequired,
   rndm: PropTypes.func.isRequired,
-  bubbleSort: PropTypes.func.isRequired
+  bubbleSort: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired
 };
 
 export default Biography;

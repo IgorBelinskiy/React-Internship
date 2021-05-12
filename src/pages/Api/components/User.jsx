@@ -6,7 +6,7 @@ import arrowLeft from '../../../assets/img/arrowleft.svg';
 import arrowRight from '../../../assets/img/arrowright.svg';
 
 const User = ({
-  users, current, activeUserTitle, prevSlide, nextSlide, isActiveUserTitle, isActiveItem
+  t, users, current, activeUserTitle, prevSlide, nextSlide, isActiveUserTitle, isActiveItem
 }) => (
   <>
     <img className="left" src={arrowLeft} alt="left" onClick={prevSlide} aria-hidden="true" />
@@ -39,7 +39,7 @@ const User = ({
               }}
               className="userBtn"
             >
-              More...
+              {t('apiPage.more')}
             </Link>
           </div>
         )}
@@ -55,7 +55,8 @@ User.propTypes = {
   isActiveItem: PropTypes.bool.isRequired,
   activeUserTitle: PropTypes.func.isRequired,
   prevSlide: PropTypes.func.isRequired,
-  nextSlide: PropTypes.func.isRequired
+  nextSlide: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired
 };
 
 export default User;

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import classes from './css/Home.module.css';
 import Video from '../../assets/video/video.mp4';
 import image from '../../assets/img/space.jpg';
@@ -8,6 +9,7 @@ import { SwitchContext } from '../../context';
 
 const Home = () => {
   const { isDay } = useContext(SwitchContext);
+  const { t } = useTranslation();
   return (
     <div className={classes.home}>
       <div className={classes.home_bg}>
@@ -32,8 +34,8 @@ const Home = () => {
       </div>
       <div className={classes.home_container}>
         <div className={classes.home_wrapper}>
-          <HeaderContainer />
-          <Footer />
+          <HeaderContainer t={t} />
+          <Footer t={t} />
         </div>
       </div>
     </div>

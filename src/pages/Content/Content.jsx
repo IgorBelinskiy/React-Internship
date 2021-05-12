@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
 import classes from './css/Content.module.css';
 import ScreenFirst from './components/ScreenFirst';
@@ -94,6 +95,7 @@ const data = {
 };
 
 const Content = () => {
+  const { t } = useTranslation();
   const [state, setState] = useState(data);
   const [visibleArrowDown, setVisibleArrowDown] = useState(true);
   const [visibleArrowUp, setVisibleArrowUp] = useState(false);
@@ -185,6 +187,7 @@ const Content = () => {
       <div className={classes.content_body}>
         <div className={classes.body_columns}>
           <ScreenFirst
+            t={t}
             screenFirstBtnToggle={screenFirstBtnToggle}
             screenFirstData={screenFirst}
           />
@@ -192,12 +195,12 @@ const Content = () => {
         </div>
         <div className={classes.body_columns}>
           <ScreenThird screenThirdData={screenThird} />
-          <ScreenFourth screenFourthData={screenFourth} />
+          <ScreenFourth t={t} screenFourthData={screenFourth} />
           <ScreenFifth screenFifthData={screenFifth} />
         </div>
         <div className={classes.body_columns}>
-          <ScreenSixth />
-          <ScreenSeventh />
+          <ScreenSixth t={t} />
+          <ScreenSeventh t={t} />
         </div>
         <div className={classes.body_columns}>
           <ScreenEighth
@@ -206,7 +209,7 @@ const Content = () => {
             isBtnActive={screenEighth.isBtnActive}
             screenEightBtnToggle={screenEightBtnToggle}
           />
-          <ScreenNinth screenNinthData={screenNinth} />
+          <ScreenNinth t={t} screenNinthData={screenNinth} />
         </div>
       </div>
       <ButtonHome />
