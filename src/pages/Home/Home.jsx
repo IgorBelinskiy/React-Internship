@@ -8,12 +8,12 @@ import HeaderContainer from './components/HeaderContainer';
 import { SwitchContext } from '../../context';
 
 const Home = () => {
-  const { isDay } = useContext(SwitchContext);
+  const { theme } = useContext(SwitchContext);
   const { t } = useTranslation();
   return (
     <div className={classes.home}>
       <div className={classes.home_bg}>
-        {isDay
+        {theme === 'day'
           ? (
             <img
               src={image}

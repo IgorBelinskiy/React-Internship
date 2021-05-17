@@ -1,40 +1,31 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import brit from '../../assets/img/brit.png';
 import rus from '../../assets/img/rus.png';
 import classes from './css/SwitchLang.module.css';
 import { SwitchContext } from '../../context';
 
 const SwitchLang = () => {
-  const [local, setLocal] = useState('');
-  const { changeLang } = useContext(SwitchContext);
-  const getLocaleStorage = () => {
-    const ls = window.localStorage.getItem('i18nextLng');
-    setLocal(ls);
-  };
-
-  useEffect(() => {
-    getLocaleStorage();
-  });
+  const { changeLang, language } = useContext(SwitchContext);
 
   return (
     <div className={classes.switchLang}>
       <button
         onClick={() => changeLang('en')}
-        className={local === 'en'
+        className={language === 'en'
           ? classes.switchLang_btn
           : `${classes.switchLang_btn} ${classes.brit}`}
         type="button"
-        disabled={local === 'en'}
+        disabled={language === 'en'}
       >
         <img src={brit} alt="br" />
       </button>
       <button
         onClick={() => changeLang('ru')}
-        className={local === 'ru'
+        className={language === 'ru'
           ? classes.switchLang_btn
           : `${classes.switchLang_btn} ${classes.rus}`}
         type="button"
-        disabled={local === 'ru'}
+        disabled={language === 'ru'}
       >
         <img src={rus} alt="ru" />
       </button>

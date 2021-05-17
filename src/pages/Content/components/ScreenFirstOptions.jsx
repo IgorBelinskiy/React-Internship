@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classes from '../css/Options.module.css';
 
-const ScreenFirstOptions = ({ options, toggleOptions }) => (
+const ScreenFirstOptions = ({ options, screenFirstOptionsToggle }) => (
   <>
     {options.map((el, index) => (
       <div
         aria-hidden="true"
         key={el.id}
-        onClick={() => toggleOptions(index)}
-        className={!el.isActive ? classes.options : `${classes.options} ${classes.actives}`}
+        onClick={() => screenFirstOptionsToggle(index)}
+        className={!el.active ? classes.options : `${classes.options} ${classes.actives}`}
       >
-        <div className={!el.isActive ? classes.option : `${classes.option} ${classes.active}`}>
+        <div className={!el.active ? classes.option : `${classes.option} ${classes.active}`}>
           {el.option}
         </div>
-        <div className={classes.option_price}>
+        <div>
           {`+$ ${el.price.toFixed(2)}`}
         </div>
       </div>
@@ -23,7 +23,7 @@ const ScreenFirstOptions = ({ options, toggleOptions }) => (
 );
 ScreenFirstOptions.propTypes = {
   options: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
-  toggleOptions: PropTypes.func.isRequired
+  screenFirstOptionsToggle: PropTypes.func.isRequired
 };
 
 export default ScreenFirstOptions;

@@ -9,7 +9,7 @@ const ScreenEighth = ({
   return (
     <div className={classes.screen_8}>
       <div className={classes.screen_8_container}>
-        <div className={classes.screen_8_options}>
+        <div>
           <ScreenEightOptions
             options={options}
             screenEightOptionsToggle={screenEightOptionsToggle}

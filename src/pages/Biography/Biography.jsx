@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classes from './css/Biography.module.css';
 import TableBody from './components/TableBody';
@@ -7,13 +7,7 @@ import { SwitchContext } from '../../context';
 import SwitchDayNight from '../../components/SwitchDayNight/SwitchDayNight';
 
 const Biography = (props) => {
-  const [state, setState] = useState({
-    year: '',
-    event: '',
-    isActive: false,
-  });
-
-  const { isDay } = useContext(SwitchContext);
+  const { theme } = useContext(SwitchContext);
 
   const {
     t,
@@ -29,47 +23,12 @@ const Biography = (props) => {
     toMin,
     minMax,
     rndm,
-    bubbleSort
+    bubbleSort,
+    isActive
   } = props;
-  const { isActive } = state;
-
-  const handleKeyDown = (e) => {
-    if (e.code === 'KeyZ' && e.shiftKey) {
-      deleteLastPost(biographyData);
-    }
-    if (e.code === 'KeyX' && e.shiftKey) {
-      minMax(biographyData);
-    }
-    if (e.code === 'KeyC' && e.shiftKey) {
-      rndm(biographyData);
-    }
-    if (e.code === 'KeyA' && e.shiftKey) {
-      setState((prevState) => ({ ...prevState, isActive: !prevState.isActive }));
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('keyup', handleKeyDown);
-    return () => {
-      window.removeEventListener('keyup', handleKeyDown);
-    };
-  }, [biographyData]);
-
-  const updText = (T) => {
-    setState((prevState) => ({ ...prevState, event: T }));
-  };
-
-  const updYear = (Y) => {
-    setState((prevState) => ({ ...prevState, year: Y }));
-  };
-
-  useEffect(() => {
-    updText(newText);
-    updYear(newYear);
-  }, [newText, newYear]);
 
   return (
-    <div className={!isDay ? classes.biography : `${classes.biography} ${classes.day}`}>
+    <div className={theme === 'night' ? classes.biography : `${classes.biography} ${classes.day}`}>
       <div className={classes.biography_dayNight}><SwitchDayNight /></div>
       <div className={classes.biography_wrapper}>
         <div className={classes.table}>
@@ -107,7 +66,7 @@ const Biography = (props) => {
               />
             </div>
             <div className={classes.form_button}>
-              <button type="button" onClick={() => { addEvent(state); }}>
+              <button type="button" onClick={addEvent}>
                 {t('biographyPage.addEvent')}
               </button>
               <button
@@ -184,7 +143,8 @@ Biography.propTypes = {
   minMax: PropTypes.func.isRequired,
   rndm: PropTypes.func.isRequired,
   bubbleSort: PropTypes.func.isRequired,
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
+  isActive: PropTypes.bool.isRequired
 };
 
 export default Biography;

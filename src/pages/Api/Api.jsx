@@ -1,4 +1,3 @@
-/* eslint-disable react/state-in-constructor */
 import React, { useState, useEffect, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as axios from 'axios';
@@ -17,7 +16,7 @@ const Api = () => {
     error: false,
   });
 
-  const { isDay } = useContext(SwitchContext);
+  const { theme } = useContext(SwitchContext);
 
   const { users, isFetching, error } = state;
 
@@ -30,7 +29,7 @@ const Api = () => {
 
   if (isFetching) {
     return (
-      <div className={!isDay ? classes.api : `${classes.api} ${classes.day}`}>
+      <div className={theme === 'night' ? classes.api : `${classes.api} ${classes.day}`}>
         <Preloader />
         {error && <div className={classes.title}>{t('apiPage.error')}</div>}
         <ButtonHome />
@@ -38,7 +37,7 @@ const Api = () => {
     );
   }
   return (
-    <div className={!isDay ? classes.api : `${classes.api} ${classes.day}`}>
+    <div className={theme === 'night' ? classes.api : `${classes.api} ${classes.day}`}>
       <div className={classes.api_switchDayNight}>
         <SwitchDayNight />
       </div>

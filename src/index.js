@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { SwitchDayNightProvider } from './context';
+import { SwitchProvider } from './context';
 
 ReactDOM.render(
-  <SwitchDayNightProvider>
+  <SwitchProvider>
     <App />
-  </SwitchDayNightProvider>,
+  </SwitchProvider>,
   document.getElementById('root')
 );

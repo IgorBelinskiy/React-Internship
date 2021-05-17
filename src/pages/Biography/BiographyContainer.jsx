@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Biography from './Biography';
 
@@ -14,12 +14,13 @@ const BiographyContainer = () => {
     ],
     newText: '',
     newYear: '',
+    isActive: false
   });
 
-  const addEvent = (data) => {
-    const { biographyData } = state;
+  const addEvent = () => {
+    const { biographyData, newText, newYear } = state;
     // eslint-disable-next-line no-restricted-globals
-    if (data.year === '' || data.year === 0 || data.year === '0' || isNaN(data.year) || data.event === '') {
+    if (newYear === '' || newYear === 0 || newYear === '0' || isNaN(newYear) || newText === '') {
       // eslint-disable-next-line no-alert
       alert('Введите корректные данные!!!');
       setState((prevState) => ({
@@ -28,8 +29,8 @@ const BiographyContainer = () => {
     } else {
       const newEvent = {
         id: biographyData.length + 1,
-        year: +data.year,
-        event: data.event,
+        year: +newYear,
+        event: newText,
       };
       setState((prevState) => ({
         ...prevState, biographyData: [...biographyData, newEvent], newText: '', newYear: '',
@@ -106,7 +107,31 @@ const BiographyContainer = () => {
     setState((prevState) => ({ ...prevState, biographyData: newBiographyData }));
   };
 
-  const { biographyData, newText, newYear } = state;
+  const handleKeyDown = (e) => {
+    if (e.code === 'KeyZ' && e.shiftKey) {
+      deleteLastPost(state.biographyData);
+    }
+    if (e.code === 'KeyX' && e.shiftKey) {
+      minMax(state.biographyData);
+    }
+    if (e.code === 'KeyC' && e.shiftKey) {
+      rndm(state.biographyData);
+    }
+    if (e.code === 'KeyA' && e.shiftKey) {
+      setState((prevState) => ({ ...prevState, isActive: !prevState.isActive }));
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keyup', handleKeyDown);
+    return () => {
+      window.removeEventListener('keyup', handleKeyDown);
+    };
+  }, [state.biographyData]);
+
+  const {
+    biographyData, newText, newYear, isActive
+  } = state;
 
   return (
     <>
@@ -125,6 +150,7 @@ const BiographyContainer = () => {
         minMax={minMax}
         rndm={rndm}
         bubbleSort={bubbleSort}
+        isActive={isActive}
       />
     </>
   );

@@ -7,16 +7,19 @@ import 'antd/dist/antd.css';
 import { SwitchContext } from '../../context';
 
 const SwitchDayNight = () => {
-  const { isDay, toggleState } = useContext(SwitchContext);
+  const { theme, toggleTheme } = useContext(SwitchContext);
+  const defaultChecked = theme === 'day';
   return (
     <div
-      className={!isDay ? classes.switchDayNight_container : `${classes.switchDayNight_container} ${classes.day}`}
+      className={theme === 'night'
+        ? classes.switchDayNight_container
+        : `${classes.switchDayNight_container} ${classes.day}`}
     >
       <div>
-        <Switch defaultChecked={!!isDay} onChange={toggleState} />
+        <Switch defaultChecked={defaultChecked} onChange={toggleTheme} />
       </div>
       <div className={classes.switchDayNight_img}>
-        {!isDay
+        {theme === 'night'
           ? <FaMoon className={classes.moon} />
           : <BsSun className={classes.sun} />}
       </div>

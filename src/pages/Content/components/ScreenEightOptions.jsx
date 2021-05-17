@@ -15,7 +15,7 @@ const ScreenEightOptions = ({ options, screenEightOptionsToggle }) => {
           className={!active ? classes.options : `${classes.options} ${classes.actives}`}
         >
           <div className={!active ? classes.option : `${classes.option} ${classes.active}`}>{option}</div>
-          <div className={classes.option_price}>
+          <div>
             {`+$ ${price.toFixed(2)}`}
           </div>
         </div>

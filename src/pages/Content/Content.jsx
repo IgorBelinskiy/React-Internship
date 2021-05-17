@@ -25,6 +25,18 @@ const data = {
       price: 9
     },
     isBtnActive: false,
+    options:
+      [
+        {
+          id: 1, option: 'Button', price: 6, active: false
+        },
+        {
+          id: 2, option: 'Checkbox', price: 7.5, active: false
+        },
+        {
+          id: 3, option: 'Submit', price: 6, active: false
+        },
+      ],
   },
   screenSecond: {
     title: "Ibrahim's Barbershop",
@@ -100,7 +112,7 @@ const Content = () => {
   const [visibleArrowDown, setVisibleArrowDown] = useState(true);
   const [visibleArrowUp, setVisibleArrowUp] = useState(false);
 
-  const { isDay } = useContext(SwitchContext);
+  const { theme } = useContext(SwitchContext);
 
   const changeArrowDown = () => {
     setVisibleArrowDown(window.scrollY < 200);
@@ -125,15 +137,27 @@ const Content = () => {
   }, []);
 
   const screenFirstBtnToggle = () => {
-    setState((prevstate) => (
-      { ...prevstate, screenFirst: { ...prevstate.screenFirst, isBtnActive: !prevstate.screenFirst.isBtnActive } }
+    setState((prevState) => (
+      { ...prevState, screenFirst: { ...prevState.screenFirst, isBtnActive: !prevState.screenFirst.isBtnActive } }
     ));
   };
 
   const screenEightBtnToggle = () => {
-    setState((prevstate) => (
-      { ...prevstate, screenEighth: { ...prevstate.screenEighth, isBtnActive: !prevstate.screenEighth.isBtnActive } }
+    setState((prevState) => (
+      { ...prevState, screenEighth: { ...prevState.screenEighth, isBtnActive: !prevState.screenEighth.isBtnActive } }
     ));
+  };
+
+  const screenFirstOptionsToggle = (index) => {
+    const { screenFirst } = state;
+    const { options } = screenFirst;
+    const updateScreenFirst = options.map((option, id) => {
+      if (index === id) {
+        return { ...option, active: !option.active };
+      }
+      return option;
+    });
+    setState(() => ({ ...state, screenFirst: { ...state.screenFirst, options: updateScreenFirst } }));
   };
 
   const screenEightOptionsToggle = (index) => {
@@ -166,7 +190,7 @@ const Content = () => {
     screenFirst, screenSecond, screenThird, screenFourth, screenFifth, screenEighth, screenNinth
   } = state;
   return (
-    <div className={!isDay ? classes.content : `${classes.content} ${classes.day}`}>
+    <div className={theme === 'night' ? classes.content : `${classes.content} ${classes.day}`}>
       <div
         aria-hidden="true"
         onClick={scrollToBottom}
@@ -190,6 +214,7 @@ const Content = () => {
             t={t}
             screenFirstBtnToggle={screenFirstBtnToggle}
             screenFirstData={screenFirst}
+            screenFirstOptionsToggle={screenFirstOptionsToggle}
           />
           <ScreenSecond screenSecondData={screenSecond} />
         </div>

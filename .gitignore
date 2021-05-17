@@ -4,6 +4,7 @@
 /node_modules
 /.eslintcache
 /.pnp
+/.idea
 .pnp.js
 .eslintcache
 .eslintrc.json

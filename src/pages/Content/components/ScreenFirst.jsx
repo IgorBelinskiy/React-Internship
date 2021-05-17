@@ -1,37 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classes from '../css/ScreenFirst.module.css';
 import html from '../../../assets/img/html-logo.png';
 import ScreenFirstOptions from './ScreenFirstOptions';
 
 const ScreenFirst = (props) => {
-  const [state, setState] = useState({
-    options:
-      [
-        { id: 1, option: 'Button', price: 6 },
-        { id: 2, option: 'Checkbox', price: 7.5 },
-        { id: 3, option: 'Submit', price: 6 },
-      ],
-    isBtnActive: null
-  });
-
-  const { screenFirstData, screenFirstBtnToggle, t } = props;
-  const { itemSelected } = screenFirstData;
-  const { options, isBtnActive } = state;
-
-  useEffect(() => {
-    setState(() => ({ ...state, isBtnActive: screenFirstData.isBtnActive }));
-  }, [screenFirstData.isBtnActive]);
-
-  const toggleOptions = (index) => {
-    const updateState = options.map((option, id) => {
-      if (id === index) {
-        return { ...option, isActive: !option.isActive };
-      }
-      return option;
-    });
-    setState({ options: updateState });
-  };
+  const {
+    screenFirstData,
+    screenFirstBtnToggle,
+    screenFirstOptionsToggle,
+    t
+  } = props;
+  const { itemSelected, isBtnActive, options } = screenFirstData;
 
   return (
     <div className={classes.screen_1}>
@@ -46,7 +26,7 @@ const ScreenFirst = (props) => {
           <div className={classes.item_selected_title}>Item selected:</div>
           <div className={classes.selected}>
             <div className={classes.selected_text}>{itemSelected.item}</div>
-            <div className={classes.selected_price}>
+            <div>
               {`+$ ${itemSelected.price.toFixed(2)}`}
             </div>
           </div>
@@ -54,7 +34,7 @@ const ScreenFirst = (props) => {
         <div className={classes.html_more_options}>
           <div>Please select more option if necessary:</div>
           <ScreenFirstOptions
-            toggleOptions={toggleOptions}
+            screenFirstOptionsToggle={screenFirstOptionsToggle}
             options={options}
           />
         </div>
@@ -78,6 +58,7 @@ ScreenFirst.propTypes = {
   screenFirstData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   screenFirstBtnToggle: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
+  screenFirstOptionsToggle: PropTypes.func.isRequired
 };
 
 export default ScreenFirst;

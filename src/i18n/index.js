@@ -24,7 +24,7 @@ i18n
   .init({
     resources,
     debug: true,
-    fallbackLng: ['en', 'ru'],
+    fallbackLng: ['en'],
     detection: options
   });
 
