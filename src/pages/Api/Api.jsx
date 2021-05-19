@@ -63,7 +63,7 @@ const Api = (props) => {
           btnGetUsers={btnGetUsers}
           t={t}
         />
-        <ButtonHome isBtnGetUser={isBtnGetUser} reset={reset} />
+        <ButtonHome reset={reset} />
       </div>
     );
   }

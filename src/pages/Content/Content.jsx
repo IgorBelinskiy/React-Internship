@@ -111,9 +111,9 @@ const Content = (
         <div className={classes.body_columns}>
           <ScreenEighth
             options={screenEighth.options}
-            screenEightOptionsToggle={toggleBtnScreenEight}
+            screenEightOptionsToggle={toggleOptionsScreenEight}
             isBtnActive={screenEighth.isBtnActive}
-            screenEightBtnToggle={toggleOptionsScreenEight}
+            screenEightBtnToggle={toggleBtnScreenEight}
           />
           <ScreenNinth t={t} screenNinthData={screenNinth} />
         </div>
