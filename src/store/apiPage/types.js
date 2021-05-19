@@ -1,0 +1,5 @@
+export const ADD_USERS = 'ADD_USERS';
+export const TOGGLE_FETCHING = 'TOGGLE_FETCHING';
+export const TOGGLE_ERROR = 'TOGGLE_ERROR';
+export const BTN_GET_USERS = 'BTN_GET_USERS';
+export const BTN_UPDATE_USERS = 'BTN_UPDATE_USERS';

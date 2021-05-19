@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { GiReturnArrow } from 'react-icons/gi';
 import classes from './css/ButtonHome.module.css';
 
-const ButtonHome = () => (
+// eslint-disable-next-line react/prop-types
+const ButtonHome = ({ reset }) => (
   <div className={classes.btn_home}>
-    <Link to="/" className={classes.btn_text}>
+    <Link to="/" onClick={reset} className={classes.btn_text}>
       <GiReturnArrow />
     </Link>
   </div>

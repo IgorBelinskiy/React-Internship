@@ -55,11 +55,13 @@ const TRANSLATIONS_EN = {
   apiPage: {
     users: 'Users',
     more: 'More...',
-    error: 'Server not responding...'
+    error: 'Server not responding...',
+    getUsers: 'get users',
+    updUsers: 'update users'
   },
   modalPage: {
     dnd: 'Drag and Drop',
-    error: 'Server not responding...'
+    error: 'Server not responding...',
   }
 };
 

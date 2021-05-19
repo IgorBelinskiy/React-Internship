@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import classes from './css/Biography.module.css';
 import TableBody from './components/TableBody';
 import ButtonHome from '../../components/ButtonHome/ButtonHome';
@@ -7,25 +8,44 @@ import { SwitchContext } from '../../context';
 import SwitchDayNight from '../../components/SwitchDayNight/SwitchDayNight';
 
 const Biography = (props) => {
+  const { t } = useTranslation();
   const { theme } = useContext(SwitchContext);
 
   const {
-    t,
-    biographyData,
-    newText,
-    newYear,
+    biographyPageData,
     addEvent,
     updateNewYear,
     updateNewText,
     deleteLastPost,
-    deleteSelectedItem,
+    deleteSelectPost,
     toMax,
     toMin,
     minMax,
     rndm,
     bubbleSort,
-    isActive
+    // addState
   } = props;
+
+  const handleKeyDown = (e) => {
+    if (e.code === 'KeyZ' && e.shiftKey) {
+      deleteLastPost();
+    }
+    if (e.code === 'KeyX' && e.shiftKey) {
+      minMax();
+    }
+    if (e.code === 'KeyC' && e.shiftKey) {
+      rndm();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keyup', handleKeyDown);
+    return () => {
+      window.removeEventListener('keyup', handleKeyDown);
+    };
+  }, []);
+
+  const { biographyData, newText, newYear } = biographyPageData;
 
   return (
     <div className={theme === 'night' ? classes.biography : `${classes.biography} ${classes.day}`}>
@@ -41,13 +61,11 @@ const Biography = (props) => {
             biographyData
               .map((el, index) => (
                 <TableBody
-                  deleteSelectedItem={deleteSelectedItem}
-                  key={el.id}
+                  deleteSelectPost={deleteSelectPost}
+                  key={el.event}
                   index={index}
                   year={el.year}
                   event={el.event}
-                  state={biographyData}
-                  isActive={isActive}
                 />
               ))
           }
@@ -71,7 +89,7 @@ const Biography = (props) => {
               </button>
               <button
                 type="button"
-                onClick={() => { deleteLastPost(biographyData); }}
+                onClick={deleteLastPost}
                 className={classes.del_btn}
               >
                 {t('biographyPage.delEvent')}
@@ -86,35 +104,35 @@ const Biography = (props) => {
               <div className={classes.action_items}>
                 <div
                   aria-hidden="true"
-                  onClick={() => { toMax(biographyData); }}
+                  onClick={() => { toMax(); }}
                   className={classes.items}
                 >
                   #1
                 </div>
                 <div
                   aria-hidden="true"
-                  onClick={() => { toMin(biographyData); }}
+                  onClick={() => { toMin(); }}
                   className={classes.items}
                 >
                   #2
                 </div>
                 <div
                   aria-hidden="true"
-                  onClick={() => { minMax(biographyData); }}
+                  onClick={() => { minMax(); }}
                   className={classes.items}
                 >
                   #3
                 </div>
                 <div
                   aria-hidden="true"
-                  onClick={() => { rndm(biographyData); }}
+                  onClick={() => { rndm(); }}
                   className={classes.items}
                 >
                   #4
                 </div>
                 <div
                   aria-hidden="true"
-                  onClick={() => { bubbleSort(biographyData); }}
+                  onClick={() => { bubbleSort(); }}
                   className={classes.items}
                 >
                   #5
@@ -130,21 +148,18 @@ const Biography = (props) => {
 };
 
 Biography.propTypes = {
-  biographyData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
-  newText: PropTypes.string.isRequired,
-  newYear: PropTypes.string.isRequired,
+  biographyPageData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   addEvent: PropTypes.func.isRequired,
   updateNewYear: PropTypes.func.isRequired,
   updateNewText: PropTypes.func.isRequired,
   deleteLastPost: PropTypes.func.isRequired,
-  deleteSelectedItem: PropTypes.func.isRequired,
+  deleteSelectPost: PropTypes.func.isRequired,
   toMax: PropTypes.func.isRequired,
   toMin: PropTypes.func.isRequired,
   minMax: PropTypes.func.isRequired,
   rndm: PropTypes.func.isRequired,
   bubbleSort: PropTypes.func.isRequired,
-  t: PropTypes.func.isRequired,
-  isActive: PropTypes.bool.isRequired
+  // addState: PropTypes.func.isRequired,
 };
 
 export default Biography;

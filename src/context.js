@@ -7,7 +7,7 @@ const SwitchContext = createContext();
 
 const SwitchProvider = (props) => {
   const [theme, toggleTheme] = useThemeFromLocalStorage();
-  const [language, toggleLang] = useLangFromLocalStorage();
+  const [language, toggleLang] = useLangFromLocalStorage('i18nextLng');
 
   const { i18n } = useTranslation();
 
