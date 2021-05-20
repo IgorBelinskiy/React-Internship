@@ -21,6 +21,7 @@ const initialState = {
 };
 
 const biographyReducer = (state = initialState, action) => {
+  const newBiography = [...state.biographyData];
   switch (action.type) {
     case ADD_STATE:
       return {
@@ -59,20 +60,16 @@ const biographyReducer = (state = initialState, action) => {
         newText: action.text
       };
     case DELETE_LAST_POST:
-      // eslint-disable-next-line no-case-declarations
-      const newBio = [...state.biographyData];
-      newBio.splice(-1, 1);
+      newBiography.splice(-1, 1);
       return {
         ...state,
-        biographyData: newBio
+        biographyData: newBiography
       };
     case DELETE_SELECTED_POST:
-      // eslint-disable-next-line no-case-declarations
-      const newB = [...state.biographyData];
-      newB.splice(action.index, 1);
+      newBiography.splice(action.index, 1);
       return {
         ...state,
-        biographyData: newB
+        biographyData: newBiography
       };
     case TO_MAX:
       return {
@@ -93,8 +90,6 @@ const biographyReducer = (state = initialState, action) => {
       };
     case RNDM:
       // eslint-disable-next-line no-case-declarations
-      const newBiography = [...state.biographyData];
-      // eslint-disable-next-line no-case-declarations
       let i; let j; let k;
       // eslint-disable-next-line no-plusplus
       for (i = newBiography.length - 1; i > 0; i--) {
@@ -108,22 +103,20 @@ const biographyReducer = (state = initialState, action) => {
         biographyData: newBiography
       };
     case BUBBLE_SORT:
-      // eslint-disable-next-line no-case-declarations
-      const newBiographyData = [...state.biographyData];
       // eslint-disable-next-line no-plusplus
-      for (let n = 0; n < newBiographyData.length; n++) {
+      for (let n = 0; n < newBiography.length; n++) {
         // eslint-disable-next-line no-plusplus,no-shadow
-        for (let i = 0; i < newBiographyData.length - 1 - n; i++) {
-          if (newBiographyData[i].year > newBiographyData[i + 1].year) {
-            const buff = newBiographyData[i];
-            newBiographyData[i] = newBiographyData[i + 1];
-            newBiographyData[i + 1] = buff;
+        for (let i = 0; i < newBiography.length - 1 - n; i++) {
+          if (newBiography[i].year > newBiography[i + 1].year) {
+            const buff = newBiography[i];
+            newBiography[i] = newBiography[i + 1];
+            newBiography[i + 1] = buff;
           }
         }
       }
       return {
         ...state,
-        biographyData: newBiographyData
+        biographyData: newBiography
       };
     default:
       return state;
