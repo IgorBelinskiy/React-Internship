@@ -6,11 +6,9 @@ import {
 } from '../../store/apiPage/actions';
 import Api from './Api';
 
-const mapStateToProps = (state) => {
-  return {
-    apiPageData: state.apiPage
-  };
-};
+const mapStateToProps = (state) => ({
+  apiPageData: state.apiPage
+});
 const mapDispatchToProps = {
   addUsers,
   toggleFetching,

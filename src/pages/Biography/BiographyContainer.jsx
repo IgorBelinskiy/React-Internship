@@ -10,11 +10,9 @@ import {
   toMax, toMin, updateNewText, updateNewYear
 } from '../../store/biographyPage/actions';
 
-const mapStateToProps = (state) => {
-  return {
-    biographyPageData: state.biographyPage
-  };
-};
+const mapStateToProps = (state) => ({
+  biographyPageData: state.biographyPage
+});
 
 const mapDispatchToProps = {
   addEvent,

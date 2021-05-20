@@ -7,11 +7,9 @@ import {
   toggleOptionsScreenFirst
 } from '../../store/contentPage/actions';
 
-const mapStateToProps = (state) => {
-  return {
-    contentPageData: state.contentPage
-  };
-};
+const mapStateToProps = (state) => ({
+  contentPageData: state.contentPage
+});
 
 const mapDispatchToProps = {
   toggleBtnScreenFirst,
