@@ -12,7 +12,7 @@ const User = ({
     <img className="left" src={arrowLeft} alt="left" onClick={prevSlide} aria-hidden="true" />
     <img className="right" src={arrowRight} alt="right" onClick={nextSlide} aria-hidden="true" />
     {users.map(({
-      photo, name, username, id
+      photo, name, id
     }, index) => (
       <div key={id} className={current === index ? 'slide active' : 'slide'}>
         {index === current && (
@@ -34,7 +34,7 @@ const User = ({
             </div>
             <Link
               to={{
-                pathname: `/api/${username}`,
+                pathname: `/api/${id}`,
                 state: { id }
               }}
               className="userBtn"

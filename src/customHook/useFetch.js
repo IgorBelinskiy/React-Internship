@@ -1,10 +1,9 @@
-import axios from 'axios';
+import apiAxios from '../service/apiAxios';
 
 const useFetch = (id) => {
   const fetch = async () => {
     try {
-      const res = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
-      const data = await res.data;
+      const data = await apiAxios.userDragAndDrop(id);
       const items = [
         { id: 1, title: 'username', text: data.username },
         { id: 2, title: 'city', text: data.address.city },

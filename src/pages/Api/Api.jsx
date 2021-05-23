@@ -16,11 +16,10 @@ const Api = (props) => {
 
   const {
     apiPageData,
-    addUsers,
+    getUsersThunk,
+    updUsersThunk,
     toggleFetching,
-    toggleError,
-    btnGetUsers,
-    btnUpdUsers
+    toggleError
   } = props;
 
   const {
@@ -41,11 +40,8 @@ const Api = (props) => {
       <div className={theme === 'night' ? classes.api : `${classes.api} ${classes.day}`}>
         <BtnGetUsers
           isBtnGetUser={isBtnGetUser}
-          toggleError={toggleError}
-          toggleFetching={toggleFetching}
-          addUsers={addUsers}
-          btnGetUsers={btnGetUsers}
           t={t}
+          getUsersThunk={getUsersThunk}
         />
         <ButtonHome />
       </div>
@@ -57,10 +53,7 @@ const Api = (props) => {
         <div className={classes.title}>{t('apiPage.error')}</div>
         <BtnGetUsers
           isBtnGetUser={isBtnGetUser}
-          toggleError={toggleError}
-          toggleFetching={toggleFetching}
-          addUsers={addUsers}
-          btnGetUsers={btnGetUsers}
+          getUsersThunk={getUsersThunk}
           t={t}
         />
         <ButtonHome reset={reset} />
@@ -74,11 +67,8 @@ const Api = (props) => {
       </div>
       <BtnUpdUsers
         isBtnUpdUser={isBtnUpdUser}
-        toggleError={toggleError}
-        toggleFetching={toggleFetching}
-        addUsers={addUsers}
-        btnUpdUsers={btnUpdUsers}
         t={t}
+        updUsersThunk={updUsersThunk}
       />
       <div className={classes.title}>{t('apiPage.users')}</div>
       <Users t={t} users={users} />
@@ -88,11 +78,10 @@ const Api = (props) => {
 };
 Api.propTypes = {
   apiPageData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
-  addUsers: PropTypes.func.isRequired,
+  getUsersThunk: PropTypes.func.isRequired,
+  updUsersThunk: PropTypes.func.isRequired,
   toggleFetching: PropTypes.func.isRequired,
-  toggleError: PropTypes.func.isRequired,
-  btnGetUsers: PropTypes.func.isRequired,
-  btnUpdUsers: PropTypes.func.isRequired
+  toggleError: PropTypes.func.isRequired
 };
 
 export default Api;

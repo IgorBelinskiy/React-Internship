@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import {
-  addUsers, btnGetUsers, btnUpdUsers,
+  getUsersThunk,
   toggleError,
-  toggleFetching
+  toggleFetching,
+  updUsersThunk
 } from '../../store/apiPage/actions';
 import Api from './Api';
 
@@ -10,11 +11,10 @@ const mapStateToProps = (state) => ({
   apiPageData: state.apiPage
 });
 const mapDispatchToProps = {
-  addUsers,
+  getUsersThunk,
+  updUsersThunk,
   toggleFetching,
-  toggleError,
-  btnGetUsers,
-  btnUpdUsers
+  toggleError
 };
 
 const ApiContainer = connect(mapStateToProps, mapDispatchToProps)(Api);
