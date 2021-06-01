@@ -7,8 +7,11 @@ const useThemeFromLocalStorage = () => {
     setTheme(() => value);
   };
 
+  const day = 'day';
+  const night = 'night';
+
   const toggleTheme = () => {
-    setLocalStorage(theme === 'day' ? 'night' : 'day');
+    setLocalStorage(theme === day ? night : day);
   };
 
   useEffect(() => {

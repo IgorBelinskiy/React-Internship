@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import Preloader from '../../../components/Preloader/Preloader';
 import '../css/BtnUsers.css';
 
@@ -7,8 +8,9 @@ const BtnGetUsers = (props) => {
   const {
     isBtnGetUser,
     getUsersThunk,
-    t
   } = props;
+
+  const { t } = useTranslation();
 
   return (
     <div aria-hidden="true" className="box-3" onClick={getUsersThunk}>
@@ -20,7 +22,6 @@ const BtnGetUsers = (props) => {
 };
 BtnGetUsers.propTypes = {
   isBtnGetUser: PropTypes.bool.isRequired,
-  t: PropTypes.func.isRequired,
   getUsersThunk: PropTypes.func.isRequired
 };
 

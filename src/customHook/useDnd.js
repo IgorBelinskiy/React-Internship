@@ -7,8 +7,10 @@ const useDnd = (id) => {
     error: false
   });
 
+  const usersFromUseFetch = useFetch(id);
+
   useEffect(async () => {
-    const user = await useFetch(id);
+    const user = await usersFromUseFetch;
     setDnd(user);
   }, [id]);
 

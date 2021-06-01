@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Preloader from '../components/Preloader/Preloader';
 
@@ -23,21 +23,18 @@ const withDnd = (WrapperComponent) => {
         });
     }, [id]);
 
-    const draggingItem = useRef();
-    const dragOverItem = useRef();
+    const [draggingItem, setDraggingItem] = useState(null);
 
     const handleDragStart = (position) => {
-      draggingItem.current = position;
+      setDraggingItem(position);
     };
     const handleDragEnter = (position) => {
-      dragOverItem.current = position;
       const listCopy = [...dnd];
-      const draggingItemContent = listCopy[draggingItem.current];
-      listCopy.splice(draggingItem.current, 1);
-      listCopy.splice(dragOverItem.current, 0, draggingItemContent);
+      const draggingItemContent = listCopy[draggingItem];
+      listCopy.splice(draggingItem, 1);
+      listCopy.splice(position, 0, draggingItemContent);
 
-      draggingItem.current = dragOverItem.current;
-      dragOverItem.current = null;
+      setDraggingItem(position);
       setDnd(listCopy);
     };
 

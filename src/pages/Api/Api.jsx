@@ -40,7 +40,6 @@ const Api = (props) => {
       <div className={theme === 'night' ? classes.api : `${classes.api} ${classes.day}`}>
         <BtnGetUsers
           isBtnGetUser={isBtnGetUser}
-          t={t}
           getUsersThunk={getUsersThunk}
         />
         <ButtonHome />
@@ -54,7 +53,6 @@ const Api = (props) => {
         <BtnGetUsers
           isBtnGetUser={isBtnGetUser}
           getUsersThunk={getUsersThunk}
-          t={t}
         />
         <ButtonHome reset={reset} />
       </div>
@@ -67,11 +65,10 @@ const Api = (props) => {
       </div>
       <BtnUpdUsers
         isBtnUpdUser={isBtnUpdUser}
-        t={t}
         updUsersThunk={updUsersThunk}
       />
       <div className={classes.title}>{t('apiPage.users')}</div>
-      <Users t={t} users={users} />
+      <Users users={users} />
       <ButtonHome />
     </div>
   );
